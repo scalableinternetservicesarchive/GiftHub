@@ -8,7 +8,7 @@ Photos of received gifts can be posted and comments can be added for community.
 A link to our pivotal tracker project
 https://www.pivotaltracker.com/n/projects/1321166
 
-Team member
+Team members
 
 Name: Tianyi Xia
 
