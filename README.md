@@ -27,4 +27,4 @@ https://www.pivotaltracker.com/n/projects/1321166
 
 **GitID:** yoonsw15
 
-![img_0936] (https://www.thomasyoon.com/img/bio.png)
+![img_0936] (http://thomasyoon.com/img/bio.png)
