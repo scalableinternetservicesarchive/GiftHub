@@ -15,3 +15,12 @@ Name: Tianyi Xia
 GitID: TianyiXia
 
 ![img_0934](https://cloud.githubusercontent.com/assets/6821107/7172407/42958ed8-e39c-11e4-8adb-fd086e3a605c.JPG)
+
+Name: Brian Tran
+
+GitID: tran-brian
+
+![img_0935](https://scontent-sjc.xx.fbcdn.net/hphotos-xpf1/v/t34.0-12/11158085_822805571128562_1585364637_n.jpg?oh=9f23371e56c2c8eb6e060b94bd6257e0&oe=55328ACA)
+
+
+
