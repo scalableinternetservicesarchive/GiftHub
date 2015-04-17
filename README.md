@@ -28,3 +28,10 @@ https://www.pivotaltracker.com/n/projects/1321166
 **GitID:** yoonsw15
 
 ![img_0936] (http://thomasyoon.com/img/bio.png)
+
+
+**Name:** Gee Won (Jennifer) Jo
+
+**GitID:** jenniferwjo
+
+![img_0937] (https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xfp1/t31.0-8/11053420_10206481318330325_3205438002961816096_o.jpg)
