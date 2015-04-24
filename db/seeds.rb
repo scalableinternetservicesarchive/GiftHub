@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 marvel_exchange = Exchange.create(name:'marvelExchange', thumburl:'http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg')
+mario_exchange = Exchange.create(name:'marioExchange', thumburl:'http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg')
+gameOfThrones = Exchange.create(name:'gameOfThonesExchange', thumburl:'http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg')

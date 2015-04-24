@@ -465,3 +465,180 @@ Processing by ExchangesController#index as HTML
   [1m[36mExchange Load (0.2ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
   Rendered exchanges/index.html.erb within layouts/application (1.3ms)
 Completed 200 OK in 58ms (Views: 57.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:41:16 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.5ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 264ms (Views: 250.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/galleries/index" for ::1 at 2015-04-23 19:42:46 -0700
+Processing by GalleriesController#index as HTML
+  Rendered galleries/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 56ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/exchanges" for ::1 at 2015-04-23 19:42:48 -0700
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered exchanges/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "marvelExchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["created_at", "2015-04-24 22:59:47.125848"], ["updated_at", "2015-04-24 22:59:47.125848"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "marioExchange"], ["thumburl", "http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg"], ["created_at", "2015-04-24 22:59:47.135703"], ["updated_at", "2015-04-24 22:59:47.135703"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "gameOfThonesExchange"], ["thumburl", "http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg"], ["created_at", "2015-04-24 22:59:47.137918"], ["updated_at", "2015-04-24 22:59:47.137918"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+
+
+Started GET "/" for ::1 at 2015-04-24 15:59:54 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 315ms (Views: 302.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "marvelExchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["created_at", "2015-04-24 23:00:04.568891"], ["updated_at", "2015-04-24 23:00:04.568891"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "marioExchange"], ["thumburl", "http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg"], ["created_at", "2015-04-24 23:00:04.574085"], ["updated_at", "2015-04-24 23:00:04.574085"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "gameOfThonesExchange"], ["thumburl", "http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg"], ["created_at", "2015-04-24 23:00:04.576340"], ["updated_at", "2015-04-24 23:00:04.576340"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "marvelExchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["created_at", "2015-04-24 23:00:13.592745"], ["updated_at", "2015-04-24 23:00:13.592745"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "marioExchange"], ["thumburl", "http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg"], ["created_at", "2015-04-24 23:00:13.599320"], ["updated_at", "2015-04-24 23:00:13.599320"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "gameOfThonesExchange"], ["thumburl", "http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg"], ["created_at", "2015-04-24 23:00:13.603168"], ["updated_at", "2015-04-24 23:00:13.603168"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+
+
+Started GET "/" for ::1 at 2015-04-24 16:00:17 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 237ms (Views: 221.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/galleries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/exchanges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/pages.self-d23b0b1da2c0da9999e1bf4b5d667c28fd2b01cf081e7ea6ec4a8ab1fee4b9f1.css?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-24 16:00:18 -0700
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "marvelExchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["created_at", "2015-04-24 23:00:32.727179"], ["updated_at", "2015-04-24 23:00:32.727179"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "marioExchange"], ["thumburl", "http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg"], ["created_at", "2015-04-24 23:00:32.731903"], ["updated_at", "2015-04-24 23:00:32.731903"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "gameOfThonesExchange"], ["thumburl", "http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg"], ["created_at", "2015-04-24 23:00:32.734130"], ["updated_at", "2015-04-24 23:00:32.734130"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+
+
+Started GET "/" for ::1 at 2015-04-24 16:00:37 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 244ms (Views: 232.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/exchanges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/galleries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/pages.self-d23b0b1da2c0da9999e1bf4b5d667c28fd2b01cf081e7ea6ec4a8ab1fee4b9f1.css?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-24 16:00:38 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-24 16:00:38 -0700
