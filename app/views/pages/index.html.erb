@@ -1,0 +1,19 @@
+<div class="browse">
+  <div class="container">
+    <ul>
+      <li><%= link_to "Exchanges", {:controller => "exchanges", :action => "index"} %></li>
+      <li><%= link_to "Gallery", {:controller => "galleries", :action => "index"} %></li>
+    </ul>
+  </div>
+</div>
+
+<tbody>
+    <% @exchanges.each do |exchange| %>
+      <tr>
+        <td><%= exchange.name %></td>
+        <div class="thumbnail">
+           <img src= <%=exchange.thumburl %> >
+        <div>
+      </tr>
+    <% end %>
+</tbody>

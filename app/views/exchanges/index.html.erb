@@ -1,0 +1,12 @@
+
+
+<tbody>
+    <% @exchanges.each do |exchange| %>
+      <tr>
+        <td><%= exchange.name %></td>
+        <div class="thumbnail">
+           <img src= <%=exchange.thumburl %> >
+        <div>
+      </tr>
+    <% end %>
+</tbody>

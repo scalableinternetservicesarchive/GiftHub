@@ -1,0 +1,467 @@
+
+
+Started GET "/" for ::1 at 2015-04-23 19:03:31 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 1932ms (Views: 1922.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/pages.self-1aeff4aaef8e4ba40bf6228e74c4193805bebf3500184118f774ae5f0048f055.css?body=1" for ::1 at 2015-04-23 19:03:33 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-23 19:03:33 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-23 19:03:33 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-23 19:03:33 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-23 19:03:33 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:03:34 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-23 19:03:34 -0700
+
+
+Started GET "/" for ::1 at 2015-04-23 19:06:16 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:4: syntax error, unexpected '{', expecting ')'
+....append=( link_to "Exchanges" {controller: exchanges action:...
+...                               ^
+/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:4: syntax error, unexpected '}', expecting ')'
+...roller: exchanges action:index} );@output_buffer.safe_append...
+...                               ^
+/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/pages/index.html.erb:4: syntax error, unexpected '{', expecting ')'
+  app/views/pages/index.html.erb:4: syntax error, unexpected '}', expecting ')'
+  app/views/pages/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/pages/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (97.8ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (79.5ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (180.9ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:06:45 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+...k_to "Exchanges" exchanges_path );@output_buffer.safe_append...
+...                               ^):
+  app/views/pages/index.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (72.2ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (154.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:08:17 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+... link_to "Exchanges" controller:exchanges action:index );@ou...
+...                               ^):
+  app/views/pages/index.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (90.5ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (78.7ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (172.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:09:28 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:4: syntax error, unexpected ':', expecting '}'
+...xchanges", :action => "index" :id => @user.id} );@output_buf...
+...                               ^
+/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:4: syntax error, unexpected '}', expecting ')'
+...ion => "index" :id => @user.id} );@output_buffer.safe_append...
+...                               ^
+/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/seungwon/Documents/GiftHub/app/views/pages/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/pages/index.html.erb:4: syntax error, unexpected ':', expecting '}'
+  app/views/pages/index.html.erb:4: syntax error, unexpected '}', expecting ')'
+  app/views/pages/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/pages/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (92.7ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (66.5ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (147.6ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:09:47 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 438ms (Views: 437.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/exchanges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/assets/pages.self-f58b16b9fc936fef3951d8fa42009341a7245ba346851b0ef80a78bdb57136c4.css?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-23 19:09:48 -0700
+
+
+Started GET "/exchanges/index" for ::1 at 2015-04-23 19:09:55 -0700
+Processing by ExchangesController#index as HTML
+  Rendered exchanges/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 64ms (Views: 63.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:10:14 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 84ms (Views: 83.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/exchanges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/assets/pages.self-d23b0b1da2c0da9999e1bf4b5d667c28fd2b01cf081e7ea6ec4a8ab1fee4b9f1.css?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-23 19:10:14 -0700
+
+
+Started GET "/exchanges/index" for ::1 at 2015-04-23 19:10:16 -0700
+Processing by ExchangesController#index as HTML
+  Rendered exchanges/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 41ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:11:13 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (13.7ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined local variable or method `galleries_path' for #<#<Class:0x007fd47296dfe0>:0x007fd47296cd20>):
+    2:   <div class="container">
+    3:     <ul>
+    4:       <li><%= link_to "Exchanges", {:controller => "exchanges", :action => "index"} %></li>
+    5:       <li><%= link_to "Gallery", galleries_path %></li>
+    6:     </ul>
+    7:   </div>
+    8: </div>
+  app/views/pages/index.html.erb:5:in `_app_views_pages_index_html_erb___3623131430536149150_70275216030000'
+
+
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.0ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (90.6ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (71.0ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (170.3ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:11:30 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 369ms (Views: 368.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/exchanges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/galleries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/pages.self-d23b0b1da2c0da9999e1bf4b5d667c28fd2b01cf081e7ea6ec4a8ab1fee4b9f1.css?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-23 19:11:30 -0700
+
+
+Started GET "/exchanges/index" for ::1 at 2015-04-23 19:11:34 -0700
+Processing by ExchangesController#index as HTML
+  Rendered exchanges/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 60ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/galleries/index" for ::1 at 2015-04-23 19:11:44 -0700
+Processing by GalleriesController#index as HTML
+  Rendered galleries/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 53.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateExchanges (20150424021315)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150424021315"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "marvelExchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["created_at", "2015-04-24 02:15:12.948674"], ["updated_at", "2015-04-24 02:15:12.948674"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+
+
+Started GET "/" for ::1 at 2015-04-23 19:18:52 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 232ms (Views: 221.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/exchanges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/pages.self-d23b0b1da2c0da9999e1bf4b5d667c28fd2b01cf081e7ea6ec4a8ab1fee4b9f1.css?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/galleries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-23 19:18:53 -0700
+
+
+Started GET "/exchanges" for ::1 at 2015-04-23 19:18:53 -0700
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered exchanges/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 73ms (Views: 70.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/galleries/index" for ::1 at 2015-04-23 19:19:32 -0700
+Processing by GalleriesController#index as HTML
+  Rendered galleries/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/exchanges" for ::1 at 2015-04-23 19:19:33 -0700
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered exchanges/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 65ms (Views: 64.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/exchanges" for ::1 at 2015-04-23 19:19:35 -0700
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered exchanges/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 49ms (Views: 48.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/galleries/index" for ::1 at 2015-04-23 19:19:36 -0700
+Processing by GalleriesController#index as HTML
+  Rendered galleries/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 43ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:19:55 -0700
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     8: </div>
+     9: 
+    10: <tbody>
+    11:     <% @exchanges.each do |exchange| %>
+    12:       <tr>
+    13:         <td><%= exchange.name %></td>
+    14:         <div class="thumbnail">
+  app/views/pages/index.html.erb:11:in `_app_views_pages_index_html_erb__458358768881914125_70279094709080'
+
+
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (91.1ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (75.2ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/seungwon/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (172.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-23 19:20:13 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 225ms (Views: 213.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/exchanges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/galleries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/pages.self-d23b0b1da2c0da9999e1bf4b5d667c28fd2b01cf081e7ea6ec4a8ab1fee4b9f1.css?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-23 19:20:14 -0700
+
+
+Started GET "/exchanges" for ::1 at 2015-04-23 19:20:18 -0700
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered exchanges/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 58ms (Views: 57.2ms | ActiveRecord: 0.2ms)
