@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+marvel_exchange = Exchange.create(name:'marvelExchange', thumburl:'http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg')
