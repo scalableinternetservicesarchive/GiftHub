@@ -5,9 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  email: 'foo@bar.com'
+  email: 'test@example.com'
+  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
 # column: value
 #
-two:
-  email: 'bar@baz.com'
+two: {}
 #  column: value

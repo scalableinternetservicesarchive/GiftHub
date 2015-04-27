@@ -1,0 +1,464 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:07:36', '2015-04-26 06:07:36', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:07:36', '2015-04-26 06:07:36', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:07:36', '2015-04-26 06:07:36', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:07:36', '2015-04-26 06:07:36', 298486374)
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+  [1m[36mExchange Load (0.1ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered pages/index.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 1745ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+  Rendered galleries/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.1ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered exchanges/index.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:09:34', '2015-04-26 06:09:34', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:09:34', '2015-04-26 06:09:34', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:09:34', '2015-04-26 06:09:34', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:09:34', '2015-04-26 06:09:34', 298486374)
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+  Rendered galleries/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 232ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+  [1m[36mExchange Load (0.3ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered pages/index.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered exchanges/index.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:11:02', '2015-04-26 06:11:02', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:11:02', '2015-04-26 06:11:02', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:11:02', '2015-04-26 06:11:02', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:11:02', '2015-04-26 06:11:02', 298486374)
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+  [1m[36mExchange Load (0.1ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered pages/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 235ms (Views: 234.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+  Rendered galleries/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.1ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered exchanges/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:25:46', '2015-04-26 06:25:46', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:25:46', '2015-04-26 06:25:46', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:25:46', '2015-04-26 06:25:46', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:25:46', '2015-04-26 06:25:46', 298486374)
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:30:57', '2015-04-26 06:30:57', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:30:57', '2015-04-26 06:30:57', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:30:57', '2015-04-26 06:30:57', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:30:57', '2015-04-26 06:30:57', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:36:20', '2015-04-26 06:36:20', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:36:20', '2015-04-26 06:36:20', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:36:20', '2015-04-26 06:36:20', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:36:20', '2015-04-26 06:36:20', 298486374)
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:36:49', '2015-04-26 06:36:49', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:36:49', '2015-04-26 06:36:49', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:36:49', '2015-04-26 06:36:49', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:36:49', '2015-04-26 06:36:49', 298486374)
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:40:21', '2015-04-26 06:40:21', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:40:21', '2015-04-26 06:40:21', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:40:21', '2015-04-26 06:40:21', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:40:21', '2015-04-26 06:40:21', 298486374)
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:40:38', '2015-04-26 06:40:38', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:40:38', '2015-04-26 06:40:38', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:40:38', '2015-04-26 06:40:38', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:40:38', '2015-04-26 06:40:38', 298486374)
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+Processing by PagesController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by ExchangesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by GalleriesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:54:18', '2015-04-26 06:54:18', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:54:18', '2015-04-26 06:54:18', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 298486374)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 293267324)[0m
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 293267324)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "exchanges"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:54:18', '2015-04-26 06:54:18', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:54:18', '2015-04-26 06:54:18', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 298486374)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 293267324)
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 293267324)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:54:18', '2015-04-26 06:54:18', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 06:54:18', '2015-04-26 06:54:18', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 298486374)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 293267324)[0m
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 06:54:18', '2015-04-26 06:54:18', 293267324)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.9ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 18:16:49', '2015-04-26 18:16:49', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 18:16:49', '2015-04-26 18:16:49', 298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 298486374)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 293267324)[0m
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 293267324)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "exchanges"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 18:16:49', '2015-04-26 18:16:49', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 18:16:49', '2015-04-26 18:16:49', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 298486374)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 293267324)
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 293267324)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 18:16:49', '2015-04-26 18:16:49', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-26 18:16:49', '2015-04-26 18:16:49', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 298486374)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 293267324)[0m
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-26 18:16:49', '2015-04-26 18:16:49', 293267324)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:18:15', '2015-04-27 19:18:15', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:18:15', '2015-04-27 19:18:15', 298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 298486374)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 293267324)[0m
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 293267324)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "exchanges"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:18:15', '2015-04-27 19:18:15', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:18:15', '2015-04-27 19:18:15', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 298486374)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 293267324)
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 293267324)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:18:15', '2015-04-27 19:18:15', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:18:15', '2015-04-27 19:18:15', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 298486374)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 293267324)[0m
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:18:15', '2015-04-27 19:18:15', 293267324)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:20:02', '2015-04-27 19:20:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:20:02', '2015-04-27 19:20:02', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 298486374)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 293267324)[0m
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 293267324)
+  [1m[35m (1.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "exchanges"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:20:02', '2015-04-27 19:20:02', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:20:02', '2015-04-27 19:20:02', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 298486374)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 293267324)
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 293267324)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:20:02', '2015-04-27 19:20:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:20:02', '2015-04-27 19:20:02', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('foo@bar.com', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('bar@baz.com', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 298486374)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 293267324)[0m
+SQLite3::SQLException: table users has no column named confirmed_at: INSERT INTO "users" ("confirmed_at", "created_at", "updated_at", "id") VALUES ('2015/01/01', '2015-04-27 19:20:02', '2015-04-27 19:20:02', 293267324)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "exchanges"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:27:19', '2015-04-27 19:27:19', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:27:19', '2015-04-27 19:27:19', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$.SJVwWD.iCdoStmvQ2cV2OClh4h7QeSU0rnB2q0/SgZS15uJdDhJG', '2015-04-27 19:27:19', '2015-04-27 19:27:19', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-04-27 19:27:19', '2015-04-27 19:27:19', 298486374)
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 980190962]]
+  [1m[36mExchange Load (0.1ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered pages/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 240ms (Views: 233.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GalleriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 980190962]]
+  Rendered galleries/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ExchangesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mExchange Load (0.1ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered exchanges/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m

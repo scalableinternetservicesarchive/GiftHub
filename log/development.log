@@ -1205,3 +1205,217 @@ Processing by Devise::RegistrationsController#new as HTML
   Rendered devise/shared/_links.html.erb (0.2ms)
   Rendered devise/registrations/new.html.erb within layouts/application (3.7ms)
 Completed 200 OK in 40ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-25 22:55:13 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 359ms (Views: 339.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-04-25 22:55:17 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 123ms (Views: 111.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-25 22:55:20 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 98ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-25 23:08:36 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 351ms (Views: 330.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-04-25 23:08:43 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (69.1ms)
+Completed 200 OK in 117ms (Views: 101.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2015-04-25 23:09:11 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oczHs30zo720zVb6BhT/LN2J4PeKGxRwttiVChEC9c6XQ+7cun3dsrvEx6EAeNnNIkVkoD1kFz2xq5POdxpepg==", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "test@example.com"], ["encrypted_password", "$2a$10$769GRB.VNHOZVCev92/EkOMVGkCbKZSyyqsD8Ps30XOqkwAN2gveG"], ["created_at", "2015-04-26 06:09:11.814726"], ["updated_at", "2015-04-26 06:09:11.814726"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-04-26 06:09:11.817898"], ["current_sign_in_at", "2015-04-26 06:09:11.817898"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-04-26 06:09:11.818752"], ["id", 2]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 104ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2015-04-25 23:09:11 -0700
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit" for ::1 at 2015-04-25 23:09:18 -0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered devise/registrations/edit.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 94ms (Views: 92.3ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-04-25 23:09:22 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ngQ8+t8jh5Nf7YQwAm9sGs/dumGqAXhw18UZgpsvTCaoixWVGG35nFDkFWsEA0r7MBE+Nh1+ez3Qth9G/TfnTg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-25 23:09:22 -0700
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.1ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-25 23:24:27 -0700
+Processing by PagesController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-25 23:24:27 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 107ms (Views: 40.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/exchanges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/pages.self-2058036cd0b004332e75a7dcd613c6a6e570cd5d8ef1ffbc4d85a263feb2b9c5.css?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/galleries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-04-25 23:24:27 -0700
+
+
+Started POST "/users/sign_in" for ::1 at 2015-04-25 23:25:37 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fmmTMipjy7TBdaV2Jr9QmQS31bBL1jOvrY2lYSu2i5ngzIW+sSqZnhapcd98h1zTMgG8aUJLzbqzjaajTKWfSw==", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "test@example.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", "2015-04-26 06:25:38.032531"], ["updated_at", "2015-04-26 06:25:38.033086"], ["id", 2]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_sign_in_at", "2015-04-26 06:25:38.035626"], ["sign_in_count", 2], ["updated_at", "2015-04-26 06:25:38.036187"], ["id", 2]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 88ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2015-04-25 23:25:38 -0700
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mExchange Load (0.2ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered pages/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-04-25 23:36:56 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mExchange Load (0.2ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered pages/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 365ms (Views: 286.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-04-25 23:36:59 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8XM3SuoUt5TMmCVA2PkURo211cFnRchcqqU5UiK49DeYm5C/q9pG5TDYEkQ/OcCRsBAfxmP7a7c/bWNLmXgFpg=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["remember_created_at", nil], ["updated_at", "2015-04-26 06:36:59.792584"], ["id", 2]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 64ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-25 23:36:59 -0700
+Processing by PagesController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-25 23:36:59 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 47ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-27 12:28:07 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+Completed 401 Unauthorized in 28ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-27 12:28:07 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 441ms (Views: 426.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-04-27 12:28:38 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lMImABVcf/ZqChG1wxkbznOZuXxr2QoMxAmjIOsNvUi6UEYZ0XX2Za1tmIOaXRwQJwOm8j+mEtXrwt7VVxNvXQ==", "user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "test@example.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-04-26 06:25:38.035626"], ["current_sign_in_at", "2015-04-27 19:28:38.531864"], ["sign_in_count", 3], ["updated_at", "2015-04-27 19:28:38.532732"], ["id", 2]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 95ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2015-04-27 12:28:38 -0700
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mExchange Load (0.6ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered pages/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 35ms (Views: 30.4ms | ActiveRecord: 1.0ms)
