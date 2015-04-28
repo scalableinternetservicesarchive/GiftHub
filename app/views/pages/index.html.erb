@@ -1,16 +1,13 @@
-<div class="browse">
-  <div class="container">
-    <ul>
-      <li><%= link_to "Exchanges", {:controller => "exchanges", :action => "index"} %></li>
-      <li><%= link_to "Gallery", {:controller => "galleries", :action => "index"} %></li>
-    </ul>
-  </div>
+<div class="center jumbotron">
+  <h1>Welcome to the GiftHub</h1>
+      <%= link_to "Exchanges", exchanges_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "Galleries", galleries_path, class: "btn btn-lg btn-primary" %>
 </div>
 
 <tbody>
     <% @exchanges.each do |exchange| %>
       <tr>
-        <td><%= exchange.name %></td>
+        <td><%= link_to "#{exchange.name}",'#' %></td>
         <div class="thumbnail">
            <img src= <%=exchange.thumburl %> >
         <div>
