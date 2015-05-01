@@ -1,6 +1,7 @@
 class ExchangesController < ApplicationController
 	def index
-		@exchanges = Exchange.all
+		@open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now }
+		@past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now }
 	end
 
 
