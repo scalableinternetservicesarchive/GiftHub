@@ -1,33 +1,4 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/* Browse */
-.browse {
-  background-color: #fff;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
 
-.header-nav {
-  list-style-type: none;
-}
-
-.browse ul,
-.account ul,
-.footer ul {
-  list-style-type: none;
-  margin: 0;
-  padding-left: 0;
-}
-
-.browse li {
-  color: #666;
-  display: inline-block;
-  font-size: 30px;
-  line-height: 1.2;
-  margin: 0;
-  padding: 10px 12px;
-}
-
-.browse a {
-	text-decoration: none;
-}
