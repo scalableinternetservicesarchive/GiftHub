@@ -830,3 +830,40 @@ Processing by PagesController#index as HTML
   [1m[35mExchange Load (0.1ms)[0m  SELECT "exchanges".* FROM "exchanges"
 Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (9.5ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('test@example.com', '$2a$04$nZx7FdKF.VEkN/6r1hZBgeSHrVutos8lDAJGCRV8/CXgSMF4o5uSC', '2015-05-01 23:07:58', '2015-05-01 23:07:58', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-05-01 23:07:58', '2015-05-01 23:07:58', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "exchanges"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-05-01 23:07:58', '2015-05-01 23:07:58', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "exchanges" ("created_at", "updated_at", "id") VALUES ('2015-05-01 23:07:58', '2015-05-01 23:07:58', 298486374)
+  [1m[36m (7.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------
+ExchangesControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.4ms)[0m  SELECT "exchanges".* FROM "exchanges"
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------
+GalleriesControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GalleriesController#index as HTML
+  Rendered galleries/index.html.erb within layouts/application (4.4ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 980190962]]
+Completed 200 OK in 770ms (Views: 768.5ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+------------------------------------------
+PagesControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.4ms)[0m  SELECT "exchanges".* FROM "exchanges"
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
