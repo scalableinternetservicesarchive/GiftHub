@@ -6,6 +6,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
  <p class="navbar-text pull-right"> 
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.

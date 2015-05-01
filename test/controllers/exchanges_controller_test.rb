@@ -6,7 +6,7 @@ class ExchangesControllerTest < ActionController::TestCase
    end
 
   test "should get index" do
-    get :index
+    get :index, :format => :html
     assert_response :success
   end
 
