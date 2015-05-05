@@ -10,16 +10,6 @@
     <% end %>
 </div>
 
-<div ng-app="GiftHubApp">
-  <div class="browse">
-    <div class="nav-container">
-      <ul>
-        <li><%= link_to "Exchanges", {:controller => "exchanges", :action => "index"} %></li>
-        <li><%= link_to "Gallery", {:controller => "galleries", :action => "index"} %></li>
-      </ul>
-    </div>
-  </div>
-
   <div ng-controller="MainCtrl" id="content">
     <div ng-controller="ExchangePagingCtrl" class="container-fluid">
       <h1>Current Exchanges</h1>
