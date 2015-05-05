@@ -1135,3 +1135,948 @@ Started GET "/assets/angular-ui-bootstrap-tpls.self-cd3eb791825fc3d9cff7b1178d83
 
 
 Started GET "/assets/application.self-a1a74291c4c48f2f663a025ffa678498d6448b849a2d74c0ca25e39ee192c0a7.js?body=1" for ::1 at 2015-05-05 10:20:55 -0700
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (2.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateExchanges (20150424021315)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150424021315"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+Migrating to DeviseCreateUsers (20150424235454)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/btran/Documents/GiftHub/db/migrate/20150424235454_devise_create_users.rb:34)
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150424235454"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddColumnsToExchanges (20150428201329)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "exchanges" ADD "description" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "exchanges" ADD "registration_start" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "exchanges" ADD "registration_end" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "exchanges" ADD "gift_due_date" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "exchanges" ADD "campus_id" integer[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "exchanges" ADD "category_id" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150428201329"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-05 12:09:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/btran/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/btran/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/btran/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.1ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.1ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (23.2ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/btran/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (45.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150505190407"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Marvel Exchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["description", "Marvel-related item exchange"], ["registration_start", "2015-04-17 00:00:00.000000"], ["registration_end", "2015-04-25 00:00:00.000000"], ["gift_due_date", "2015-05-07 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.757131"], ["updated_at", "2015-05-05 19:11:01.757131"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "League of Legends Exchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["description", "League of Legends-related item exchange"], ["registration_start", "2015-04-12 00:00:00.000000"], ["registration_end", "2015-04-17 00:00:00.000000"], ["gift_due_date", "2015-04-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.764553"], ["updated_at", "2015-05-05 19:11:01.764553"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mario Exchange"], ["thumburl", "http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg"], ["description", "Mario-related item exchange"], ["registration_start", "2015-04-20 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.769810"], ["updated_at", "2015-05-05 19:11:01.769810"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Game Of Thrones Exchange"], ["thumburl", "http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg"], ["description", "Game of Thrones-related item exchange"], ["registration_start", "2015-04-20 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.774748"], ["updated_at", "2015-05-05 19:11:01.774748"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Pokemon Exchange"], ["thumburl", "http://beagamecharacter.com/wp-content/uploads/2013/01/Pokemon-Reveal.jpg"], ["description", "Pokemon-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.779493"], ["updated_at", "2015-05-05 19:11:01.779493"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "DC Exchange"], ["thumburl", "http://cdn1.sciencefiction.com/wp-content/uploads/2014/04/DCSuperHeroes.jpg"], ["description", "DC Comics-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.783635"], ["updated_at", "2015-05-05 19:11:01.783635"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bunny Exchange"], ["thumburl", "http://4.bp.blogspot.com/-HTvSYzA-pO4/UgQb4Zh_u0I/AAAAAAAAEuI/XwhtogT_1tA/s1600/3+cute2.jpg"], ["description", "Bunny-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.787672"], ["updated_at", "2015-05-05 19:11:01.787672"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Plane Exchange"], ["thumburl", "http://www.latestpilotjobs.com/ckfiles/images/1(22).jpg"], ["description", "Plane-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.792433"], ["updated_at", "2015-05-05 19:11:01.792433"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Nerf Exchange"], ["thumburl", "http://i296.photobucket.com/albums/mm199/ArR0ws0fLlfe/DSC00595.jpg"], ["description", "Nerf-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.796854"], ["updated_at", "2015-05-05 19:11:01.796854"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Tom Hanks Exchange"], ["thumburl", "http://assets-s3.mensjournal.com/img/article/tom-hanks-the-mj-interview/298_298_tom-hanks-the-mj-interview.jpg"], ["description", "Tom Hanks-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.801111"], ["updated_at", "2015-05-05 19:11:01.801111"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jewelry Exchange"], ["thumburl", "http://www.qccrimestoppers.com/images/jewelry.jpg"], ["description", "Jewelry-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 19:11:01.805216"], ["updated_at", "2015-05-05 19:11:01.805216"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-05 12:11:28 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.4ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (6.6ms)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /home/btran/Documents/GiftHub/app/assets/stylesheets/custom.css.scss to /home/btran/Documents/GiftHub/app/assets/stylesheets/custom.scss. (called from _app_views_layouts_application_html_erb___4123369314516920324_24222600 at /home/btran/Documents/GiftHub/app/views/layouts/application.html.erb:5)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /home/btran/Documents/GiftHub/app/assets/stylesheets/custom.css.scss to /home/btran/Documents/GiftHub/app/assets/stylesheets/custom.scss. (called from _app_views_layouts_application_html_erb___4123369314516920324_24222600 at /home/btran/Documents/GiftHub/app/views/layouts/application.html.erb:5)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 2925ms (Views: 2895.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.self-44cfb49e30a61c2effd18a117f554fcd56615b15e7221d03b96b3ecc354297b1.css?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/pages.self-ec397934fce988501d6d13585872b8a2d0739b809d63b64e1f6f0250b8c9b28c.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:31 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/angular.self-8ffda33ea6b6f0dee40d4c5dca6c5096b06bf120fc448aebb9b5d9f9d2cd9a55.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/angular-animate.self-9aa382fa3f5dab775bb3b13b5ec46b2c1fcb9f4708433a3ed3dc547dfb378c8d.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/angular-ui-bootstrap-tpls.self-cd3eb791825fc3d9cff7b1178d834a50cc4393ee4851a3c087428666dcccb810.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/application.self-a1a74291c4c48f2f663a025ffa678498d6448b849a2d74c0ca25e39ee192c0a7.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/pages.self-ec397934fce988501d6d13585872b8a2d0739b809d63b64e1f6f0250b8c9b28c.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/angular.self-8ffda33ea6b6f0dee40d4c5dca6c5096b06bf120fc448aebb9b5d9f9d2cd9a55.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/angular-animate.self-9aa382fa3f5dab775bb3b13b5ec46b2c1fcb9f4708433a3ed3dc547dfb378c8d.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/angular-ui-bootstrap-tpls.self-cd3eb791825fc3d9cff7b1178d834a50cc4393ee4851a3c087428666dcccb810.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+
+
+Started GET "/assets/application.self-a1a74291c4c48f2f663a025ffa678498d6448b849a2d74c0ca25e39ee192c0a7.js?body=1" for 127.0.0.1 at 2015-05-05 12:11:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "galleries_users"
+SQLite3::SQLException: no such table: galleries_users: DROP TABLE "galleries_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "galleries_users"
+SQLite3::SQLException: no such table: galleries_users: DROP TABLE "galleries_users"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "photos"
+SQLite3::SQLException: no such table: photos: DROP TABLE "photos"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "campuses"
+SQLite3::SQLException: no such table: campuses: DROP TABLE "campuses"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "campuses"
+SQLite3::SQLException: no such table: campuses: DROP TABLE "campuses"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "categories"
+SQLite3::SQLException: no such table: categories: DROP TABLE "categories"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "categories"
+SQLite3::SQLException: no such table: categories: DROP TABLE "categories"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddRestOfSchema (20150505190407)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "campuses"
+SQLite3::SQLException: no such table: campuses: DROP TABLE "campuses"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "campuses"[0m
+SQLite3::SQLException: no such table: campuses: DROP TABLE "campuses"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (2.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (2.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150505190407')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424235454')[0m
+  [1m[35m (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428201329')[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) 
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (5.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (3.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (3.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (2.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150505190407')[0m
+  [1m[35m (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424235454')
+  [1m[36m (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424021315')[0m
+  [1m[35m (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428201329')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Marvel Exchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["description", "Marvel-related item exchange"], ["registration_start", "2015-04-17 00:00:00.000000"], ["registration_end", "2015-04-25 00:00:00.000000"], ["gift_due_date", "2015-05-07 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.203420"], ["updated_at", "2015-05-05 21:54:02.203420"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "League of Legends Exchange"], ["thumburl", "http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg"], ["description", "League of Legends-related item exchange"], ["registration_start", "2015-04-12 00:00:00.000000"], ["registration_end", "2015-04-17 00:00:00.000000"], ["gift_due_date", "2015-04-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.209954"], ["updated_at", "2015-05-05 21:54:02.209954"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mario Exchange"], ["thumburl", "http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg"], ["description", "Mario-related item exchange"], ["registration_start", "2015-04-20 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.213791"], ["updated_at", "2015-05-05 21:54:02.213791"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Game Of Thrones Exchange"], ["thumburl", "http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg"], ["description", "Game of Thrones-related item exchange"], ["registration_start", "2015-04-20 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.218112"], ["updated_at", "2015-05-05 21:54:02.218112"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Pokemon Exchange"], ["thumburl", "http://beagamecharacter.com/wp-content/uploads/2013/01/Pokemon-Reveal.jpg"], ["description", "Pokemon-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.222302"], ["updated_at", "2015-05-05 21:54:02.222302"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "DC Exchange"], ["thumburl", "http://cdn1.sciencefiction.com/wp-content/uploads/2014/04/DCSuperHeroes.jpg"], ["description", "DC Comics-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.225623"], ["updated_at", "2015-05-05 21:54:02.225623"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bunny Exchange"], ["thumburl", "http://4.bp.blogspot.com/-HTvSYzA-pO4/UgQb4Zh_u0I/AAAAAAAAEuI/XwhtogT_1tA/s1600/3+cute2.jpg"], ["description", "Bunny-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.229039"], ["updated_at", "2015-05-05 21:54:02.229039"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Plane Exchange"], ["thumburl", "http://www.latestpilotjobs.com/ckfiles/images/1(22).jpg"], ["description", "Plane-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.232641"], ["updated_at", "2015-05-05 21:54:02.232641"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Nerf Exchange"], ["thumburl", "http://i296.photobucket.com/albums/mm199/ArR0ws0fLlfe/DSC00595.jpg"], ["description", "Nerf-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.236228"], ["updated_at", "2015-05-05 21:54:02.236228"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Tom Hanks Exchange"], ["thumburl", "http://assets-s3.mensjournal.com/img/article/tom-hanks-the-mj-interview/298_298_tom-hanks-the-mj-interview.jpg"], ["description", "Tom Hanks-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.241036"], ["updated_at", "2015-05-05 21:54:02.241036"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "exchanges" ("name", "thumburl", "description", "registration_start", "registration_end", "gift_due_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jewelry Exchange"], ["thumburl", "http://www.qccrimestoppers.com/images/jewelry.jpg"], ["description", "Jewelry-related item exchange"], ["registration_start", "2015-04-27 00:00:00.000000"], ["registration_end", "2015-05-17 00:00:00.000000"], ["gift_due_date", "2015-05-27 00:00:00.000000"], ["created_at", "2015-05-05 21:54:02.244969"], ["updated_at", "2015-05-05 21:54:02.244969"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-05 14:54:31 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mExchange Load (0.4ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  Rendered pages/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 598ms (Views: 565.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self-44cfb49e30a61c2effd18a117f554fcd56615b15e7221d03b96b3ecc354297b1.css?body=1" for 127.0.0.1 at 2015-05-05 14:54:31 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:31 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:31 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:31 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/pages.self-ec397934fce988501d6d13585872b8a2d0739b809d63b64e1f6f0250b8c9b28c.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/angular.self-8ffda33ea6b6f0dee40d4c5dca6c5096b06bf120fc448aebb9b5d9f9d2cd9a55.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/angular-animate.self-9aa382fa3f5dab775bb3b13b5ec46b2c1fcb9f4708433a3ed3dc547dfb378c8d.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/application.self-a1a74291c4c48f2f663a025ffa678498d6448b849a2d74c0ca25e39ee192c0a7.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/angular-ui-bootstrap-tpls.self-cd3eb791825fc3d9cff7b1178d834a50cc4393ee4851a3c087428666dcccb810.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+
+
+Started GET "/assets/angular.self-8ffda33ea6b6f0dee40d4c5dca6c5096b06bf120fc448aebb9b5d9f9d2cd9a55.js?body=1" for 127.0.0.1 at 2015-05-05 14:54:32 -0700
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (3.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150505190407')
+  [1m[36m (6.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424235454')[0m
+  [1m[35m (87.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428201329')[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) 
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (2.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (2.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150505190407')[0m
+  [1m[35m (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424235454')
+  [1m[36m (2.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424021315')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428201329')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20150505215904)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505215904"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCampus (20150505220102)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "campus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "email_domain" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220102"]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGalleries (20150505220133)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "galleries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar NOT NULL, "upload_date" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220133"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePhotos (20150505220212)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gallery_id" integer NOT NULL, "data" blob NOT NULL, "caption" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220212"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWishLists (20150505220249)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "wish_lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "last_updated" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220249"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWishListItems (20150505220407)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "wish_list_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "wish_list_id" integer NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220407"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateExchangeProfiles (20150505220439)
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "exchange_profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "exchange_id" integer NOT NULL, "exchange_profile_id" integer, "delivery_verification" blob, "gift_received" boolean NOT NULL, "wish_list_id" integer) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220439"]]
+  [1m[36m (5.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateInputTypes (20150505220502)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "input_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220502"]]
+  [1m[36m (4.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateQuestions (20150505220543)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange_id" integer NOT NULL, "title" varchar NOT NULL, "input_type_id" integer NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220543"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateOptions (20150505220612)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "value" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220612"]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResponses (20150505220628)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "responses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220628"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResponseValues (20150505220706)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (3.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (3.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150505190407')
+  [1m[36m (4.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424235454')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428201329')[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) 
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (2.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (2.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150505190407')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424235454')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424021315')[0m
+  [1m[35m (2.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428201329')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) [0m
+  [1m[35m (4.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (3.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150505190407')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424235454')[0m
+  [1m[35m (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36m (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428201329')[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) 
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (2.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (2.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150505190407')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424235454')
+  [1m[36m (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424021315')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428201329')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20150505215904)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505215904"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCampuses (20150505220102)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCampuses (20150505220102)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "campuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "email_domain" varchar NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220102"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGalleries (20150505220133)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "galleries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar NOT NULL, "upload_date" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220133"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePhotos (20150505220212)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gallery_id" integer NOT NULL, "data" blob NOT NULL, "caption" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220212"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWishLists (20150505220249)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "wish_lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "last_updated" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220249"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWishListItems (20150505220407)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "wish_list_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "wish_list_id" integer NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220407"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateExchangeProfiles (20150505220439)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "exchange_profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "exchange_id" integer NOT NULL, "exchange_profile_id" integer, "delivery_verification" blob, "gift_received" boolean NOT NULL, "wish_list_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220439"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateInputTypes (20150505220502)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "input_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220502"]]
+  [1m[36m (5.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateQuestions (20150505220543)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange_id" integer NOT NULL, "title" varchar NOT NULL, "input_type_id" integer NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220543"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateOptions (20150505220612)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "value" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220612"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResponses (20150505220628)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "responses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220628"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResponseValues (20150505220706)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) [0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (2.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150505190407')
+  [1m[36m (7.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424235454')[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424021315')
+  [1m[36m (5.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428201329')[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "exchanges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "thumburl" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "registration_start" datetime, "registration_end" datetime, "gift_due_date" datetime, "campus_id" integer, "category_id" integer) 
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (2.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (3.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150505190407')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150424235454')
+  [1m[36m (2.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150424021315')[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428201329')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20150505215904)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505215904"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCampuses (20150505220102)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "campuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "email_domain" varchar NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220102"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGalleries (20150505220133)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "galleries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar NOT NULL, "upload_date" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220133"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePhotos (20150505220212)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gallery_id" integer NOT NULL, "data" blob NOT NULL, "caption" varchar NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220212"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWishLists (20150505220249)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "wish_lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "last_updated" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220249"]]
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWishListItems (20150505220407)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "wish_list_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "wish_list_id" integer NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220407"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateExchangeProfiles (20150505220439)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "exchange_profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "exchange_id" integer NOT NULL, "exchange_profile_id" integer, "delivery_verification" blob, "gift_received" boolean NOT NULL, "wish_list_id" integer) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220439"]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateInputTypes (20150505220502)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "input_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220502"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateQuestions (20150505220543)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "exchange_id" integer NOT NULL, "title" varchar NOT NULL, "input_type_id" integer NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220543"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateOptions (20150505220612)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "options" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "value" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220612"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResponses (20150505220628)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "responses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220628"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResponseValues (20150505220706)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateResponseValues (20150505220706)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "response_values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "response_id" integer NOT NULL, "value" varchar NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220706"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateComments (20150505220746)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gallery_id" integer NOT NULL, "user_id" integer NOT NULL, "value" varchar NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150505220746"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
