@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  get 'forms/index'
+
+  get 'forms/create'
+
   devise_for :users
   resources :exchanges
-
+  resources :forms
+  resources :pages
+  
   root 'pages#index'
 
   get 'galleries' => 'galleries#index'
