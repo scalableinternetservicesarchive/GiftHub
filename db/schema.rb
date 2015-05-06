@@ -13,6 +13,30 @@
 
 ActiveRecord::Schema.define(version: 20150506023444) do
 
+  create_table "campuses", force: :cascade do |t|
+    t.string "name",         null: false
+    t.string "email_domain", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "gallery_id", null: false
+    t.integer "user_id",    null: false
+    t.string  "value",      null: false
+  end
+
+  create_table "exchange_profiles", force: :cascade do |t|
+    t.integer "user_id",               null: false
+    t.integer "exchange_id",           null: false
+    t.integer "exchange_profile_id"
+    t.binary  "delivery_verification"
+    t.boolean "gift_received",         null: false
+    t.integer "wish_list_id"
+  end
+
   create_table "exchanges", force: :cascade do |t|
     t.string   "name"
     t.string   "thumburl"
@@ -36,6 +60,44 @@ ActiveRecord::Schema.define(version: 20150506023444) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "galleries", force: :cascade do |t|
+    t.integer  "exchange_id", null: false
+    t.integer  "user_id",     null: false
+    t.string   "title",       null: false
+    t.datetime "upload_date", null: false
+  end
+
+  create_table "input_types", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.string  "value",       null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "gallery_id", null: false
+    t.binary  "data",       null: false
+    t.string  "caption",    null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "exchange_id",   null: false
+    t.string  "title",         null: false
+    t.integer "input_type_id", null: false
+  end
+
+  create_table "response_values", force: :cascade do |t|
+    t.integer "response_id", null: false
+    t.string  "value",       null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.integer "user_id",     null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -53,5 +115,15 @@ ActiveRecord::Schema.define(version: 20150506023444) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "wish_list_items", force: :cascade do |t|
+    t.integer "wish_list_id", null: false
+    t.string  "name",         null: false
+  end
+
+  create_table "wish_lists", force: :cascade do |t|
+    t.string   "title",        null: false
+    t.datetime "last_updated", null: false
+  end
 
 end
