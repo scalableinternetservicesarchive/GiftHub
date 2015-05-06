@@ -1,0 +1,11 @@
+Enter new exchange information
+<hr>
+
+<%= form_for @form do |f| %>
+	Exchange Name: <%= f.text_field :exchangeName %><br />
+	CategoryID: <%= f.text_field :categoryID %><br />
+	User Email: <%= f.text_field :userEmail %><br />
+	Notes to your Santa: <%= f.text_area :notes %><br />
+	Favorite Thing about this Exchange?: <%= f.text_area :favorite %><br />
+	<%= f.submit %>
+<% end %>

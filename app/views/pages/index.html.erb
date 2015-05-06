@@ -19,16 +19,15 @@
             <% @exchanges.each do |exchange| %>
                 <div class="col-md-3" style="height: 15em">
                   <p><%= exchange.name %></p>
-                  <a href="#">
                     <div class="row" style="padding-bottom: 1em">
                       <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="col-md-5" />
                     </div>
                     <div class="row">
                       <div class="col-md-offset-1">
-                        <p class="btn btn-primary">Sign Up</p>
+                          <%= link_to "Sign Up", new_form_path(:name => exchange.name), class: "btn btn-primary"  %>
                       </div>
                     </div>
-                  </a>
+                  
                 </div>
             <% end %>
           </div>

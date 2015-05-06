@@ -1,0 +1,11 @@
+Enter new exchange information
+<hr>
+
+<%= form_for @form do |f| %>
+	<p>
+		Notes to your Santa: <%= f.text_area :notes %><br/>
+		Favorite Thing about this Exchange?: <%= f.text_area :favorite %><br/>
+		<%= hidden_field_tag :currentExchange, params[:name]  %>
+		<%= f.submit "Submit"%>
+	</p>
+<% end %>
