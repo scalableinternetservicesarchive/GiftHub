@@ -10204,3 +10204,229 @@ Processing by ExchangesController#show as HTML
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
   Rendered layouts/_header.html.erb (1.6ms)
 Completed 200 OK in 161ms (Views: 160.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-08 15:39:00 -0700
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mExchange Load (0.2ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered pages/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 117ms (Views: 115.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/exchanges" for ::1 at 2015-05-08 15:39:03 -0700
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_table.html.erb (4.4ms)
+  Rendered exchanges/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 99ms (Views: 95.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/exchanges/3" for ::1 at 2015-05-08 15:39:09 -0700
+Processing by ExchangesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mExchange Load (0.1ms)[0m  [1mSELECT  "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered exchanges/show.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 91ms (Views: 89.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/exchanges" for ::1 at 2015-05-08 15:39:47 -0700
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_table.html.erb (4.9ms)
+  Rendered exchanges/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 105ms (Views: 102.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-0374899e9723c053f4fdf3de570e5d3142c6b9aff79f582b8c6d517235595a8d.css?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/pages.self-ec397934fce988501d6d13585872b8a2d0739b809d63b64e1f6f0250b8c9b28c.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/angular.self-8ffda33ea6b6f0dee40d4c5dca6c5096b06bf120fc448aebb9b5d9f9d2cd9a55.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/angular-ui-bootstrap-tpls.self-cd3eb791825fc3d9cff7b1178d834a50cc4393ee4851a3c087428666dcccb810.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/angular-animate.self-9aa382fa3f5dab775bb3b13b5ec46b2c1fcb9f4708433a3ed3dc547dfb378c8d.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/assets/application.self-a1a74291c4c48f2f663a025ffa678498d6448b849a2d74c0ca25e39ee192c0a7.js?body=1" for ::1 at 2015-05-08 15:39:47 -0700
+
+
+Started GET "/exchanges" for ::1 at 2015-05-08 15:40:33 -0700
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  Rendered layouts/_table.html.erb (1.2ms)
+  Rendered exchanges/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+SyntaxError (/Users/TianyiXia/workspace/GiftHub/app/views/layouts/_table.html.erb:32: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/TianyiXia/workspace/GiftHub/app/views/layouts/_table.html.erb:34: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/layouts/_table.html.erb:32: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/layouts/_table.html.erb:34: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/exchanges/index.html.erb:3:in `_app_views_exchanges_index_html_erb___1339918376022287661_70341480716200'
+  app/controllers/exchanges_controller.rb:5:in `index'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (36.8ms)
+
+
+Started GET "/exchanges" for ::1 at 2015-05-08 15:40:57 -0700
+Processing by ExchangesController#index as HTML
+  [1m[35mExchange Load (0.2ms)[0m  SELECT "exchanges".* FROM "exchanges"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "exchanges".* FROM "exchanges"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_table.html.erb (5.8ms)
+  Rendered exchanges/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 96ms (Views: 92.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/application.self-0374899e9723c053f4fdf3de570e5d3142c6b9aff79f582b8c6d517235595a8d.css?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/galleries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/exchanges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/pages.self-ec397934fce988501d6d13585872b8a2d0739b809d63b64e1f6f0250b8c9b28c.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/angular.self-8ffda33ea6b6f0dee40d4c5dca6c5096b06bf120fc448aebb9b5d9f9d2cd9a55.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/angular-animate.self-9aa382fa3f5dab775bb3b13b5ec46b2c1fcb9f4708433a3ed3dc547dfb378c8d.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/angular-ui-bootstrap-tpls.self-cd3eb791825fc3d9cff7b1178d834a50cc4393ee4851a3c087428666dcccb810.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700
+
+
+Started GET "/assets/application.self-a1a74291c4c48f2f663a025ffa678498d6448b849a2d74c0ca25e39ee192c0a7.js?body=1" for ::1 at 2015-05-08 15:40:57 -0700

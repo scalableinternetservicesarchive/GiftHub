@@ -3,14 +3,14 @@
     <% @open_exchanges.each do |exchange| %>
       <div class="open">
         <p><%= exchange.name %></p>
-        <div class="thumbnail">
-          <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> />
-        </div>
         <% if current_user.try(:admin?) %>
           <td><%= link_to 'Show', exchange %></td>
           <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
           <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
         <% end %>
+        <div class="thumbnail">
+          <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> />
+        </div>
       </div>
     <% end %>
   </div>
@@ -19,6 +19,11 @@
     <% @past_exchanges.each do |exchange| %>
       <div class="past">
         <p><%= exchange.name %></p>
+                <% if current_user.try(:admin?) %>
+          <td><%= link_to 'Show', exchange %></td>
+          <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
+          <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% end %>
         <div class="thumbnail">
           <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> />
         </div>
