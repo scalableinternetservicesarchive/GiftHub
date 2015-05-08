@@ -11,3 +11,5 @@ one: {}
 	registration_end: 2015-04-20 00:00:00
 two: {}
 #  column: value
+	registration_start: 2015-04-20 00:00:00
+	registration_end: 2015-04-20 00:00:00

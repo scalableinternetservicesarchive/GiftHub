@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150505193336) do
+ActiveRecord::Schema.define(version: 20150506023444) do
 
   create_table "campuses", force: :cascade do |t|
     t.string "name",         null: false
@@ -37,7 +36,6 @@ ActiveRecord::Schema.define(version: 20150505193336) do
     t.boolean "gift_received",         null: false
     t.integer "wish_list_id"
   end
->>>>>>> master
 
   create_table "exchanges", force: :cascade do |t|
     t.string   "name"
