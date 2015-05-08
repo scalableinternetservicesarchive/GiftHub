@@ -1,7 +1,7 @@
 class ExchangesController < ApplicationController
 	def index
-		@open_exchanges = Exchange.all #.select { |e| e.registration_end > DateTime.now }
-		@past_exchanges = Exchange.all #.select { |e| e.registration_end < DateTime.now }
+		@open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now }
+		@past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now }
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @open_exchanges }
