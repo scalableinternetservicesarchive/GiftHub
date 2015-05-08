@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exchangeName: MyString
+  categoryID: 1
+  userEmail: MyString
+  notes: MyString
+  favorite: MyString
+
+two:
+  exchangeName: MyString
+  categoryID: 1
+  userEmail: MyString
+  notes: MyString
+  favorite: MyString
