@@ -1,7 +1,0 @@
-  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
-  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "campuses"
-  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "campuses" () VALUES ()[0m
-SQLite3::SQLException: near ")": syntax error: INSERT INTO "campuses" () VALUES ()
-  [1m[35m (0.5ms)[0m  rollback transaction
