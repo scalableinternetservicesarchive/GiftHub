@@ -1,0 +1,26 @@
+
+<%= form_for(@exchange) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 6 %>
+  </div>
+  <div class="field">
+    <%= f.label :thumburl %><br />
+    <%= f.text_field :thumburl %>
+  </div>
+    <div class="field">
+    <%= f.label :registration_start %><br />
+    <%= f.text_field :registration_start %>
+  </div>
+    <div class="field">
+    <%= f.label :registration_end %><br />
+    <%= f.text_field :registration_end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
