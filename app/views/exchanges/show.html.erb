@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @exchange.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @exchange.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @exchange.thumburl %>
+</p>
+
+<p>
+  <b>registration_start:</b>
+  <%= @exchange.registration_start %>
+</p>
+
+<p>
+  <b>registration_end:</b>
+  <%= @exchange.registration_end %>
+</p>
+
+<%= link_to 'Back', exchange_path %>
