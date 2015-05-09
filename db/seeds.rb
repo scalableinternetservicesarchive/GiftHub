@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Past
-marvel_exchange = Exchange.create(name:'Marvel Exchange', thumburl:'http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg', description: 'Marvel-related item exchange', registration_start: '2015-04-17 00:00:00', registration_end: '2015-04-25 00:00:00', gift_due_date: '2015-05-07 00:00:00')
-lol_exchange = Exchange.create(name:'League of Legends Exchange', thumburl:'http://n3rdbomber.com/wp-content/uploads/2015/01/league-of-legends.jpg', description: 'League of Legends-related item exchange', registration_start: '2015-04-12 00:00:00', registration_end: '2015-04-17 00:00:00', gift_due_date: '2015-04-27 00:00:00')
+marvel_exchange = Exchange.create(name:'Marvel', thumburl:'http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg', description: 'Marvel-related item exchange', registration_start: '2015-04-17 00:00:00', registration_end: '2015-04-25 00:00:00', gift_due_date: '2015-05-07 00:00:00')
+lol_exchange = Exchange.create(name:'League of Legends', thumburl:'http://n3rdbomber.com/wp-content/uploads/2015/01/league-of-legends.jpg', description: 'League of Legends-related item exchange', registration_start: '2015-04-12 00:00:00', registration_end: '2015-04-17 00:00:00', gift_due_date: '2015-04-27 00:00:00')
 
 # Current
 mario_exchange = Exchange.create(name:'Super Mario', thumburl:'http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg', description: 'Mario-related item exchange', registration_start: '2015-04-20 00:00:00', registration_end: '2015-05-17 00:00:00', gift_due_date: '2015-05-27 00:00:00')
