@@ -1,0 +1,19 @@
+<h1>Dashboard</h1>
+
+<div class="container">
+    <h3>Events you signed up</h3>
+    <% @myExchanges.each do |exchange| %>
+
+      <div class="open">
+        <p><%= exchange.name %></p>
+        <% if current_user.try(:admin?) %>
+          <td><%= link_to 'Show', exchange %></td>
+          <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
+          <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% end %>
+        <div class="thumbnail">
+          <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> />
+        </div>
+      </div>
+    <% end %>
+  </div>
