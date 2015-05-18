@@ -24,7 +24,9 @@
                     </div>
                     <div class="row">
                       <!-- <div class="col-md-offset-1"> -->
-                          <%= link_to "Sign Up", new_form_path(:name => exchange.name), class: "btn btn-warning" %>
+                          <%= link_to "Sign Up", 
+                          new_form_path(:name => exchange.name, :exchange_id => exchange.id), 
+                          class: "btn btn-warning" %>
                       <!-- </div> -->
                     </div>
                   

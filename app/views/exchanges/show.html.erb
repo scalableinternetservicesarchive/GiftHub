@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+        <div class="thumbnail">
+          <img alt= <%= @exchange.name %> src= <%= @exchange.thumburl %> />
+        </div>
+        
 <p>
   <b>Name:</b>
   <%= @exchange.name %>
@@ -8,11 +12,6 @@
 <p>
   <b>Description:</b>
   <%= @exchange.description %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @exchange.thumburl %>
 </p>
 
 <p>

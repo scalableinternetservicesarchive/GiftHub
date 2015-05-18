@@ -9,13 +9,32 @@ class FormsController < ApplicationController
   def new
   	@form = Form.new
   	@currentExchange = params[:name]
+    @currentExchangeID = params[:exchange_id]
   	# raise @currentExchange
   end
 
   def create
 
-  	@form = Form.new(:exchangeName => params[:currentExchange], :categoryID => 123, :userEmail => current_user.email, :notes => params[:form][:notes], :favorite => params[:form][:favorite])
-  	if @form.save
+  	@form = Form.new(:exchangeName => params[:currentExchange], 
+      :categoryID => 123, :userEmail => current_user.email, 
+      :notes => params[:form][:notes], 
+      :favorite => params[:form][:favorite])
+
+    event = Exchange.find_by(name: params[:currentExchange])
+
+    if (event != nil)
+        
+        # PREVENT DUPLICATE SUBMISSIONS: CHECK OLD SIGN UP!
+        oldSignUp = ExchangeProfile.where(user_id: current_user.id, exchange_id: event.id)
+        if(!oldSignUp.empty?)
+          redirect_to pages_path, :notice => "You have already signed up for this event!" and return false       
+        end
+
+        xchangeprofile = ExchangeProfile.new(user_id: current_user.id, exchange_id: event.id, gift_received:false)
+        xchangeprofile.save
+    end
+
+    if @form.save
   		redirect_to pages_path, :notice => "Thank you for signing up"
   	else
   		render ('new')
