@@ -23,10 +23,17 @@ class FormsController < ApplicationController
     event = Exchange.find_by(name: params[:currentExchange])
 
     if (event != nil)
+        
+        # PREVENT DUPLICATE SUBMISSIONS: CHECK OLD SIGN UP!
+        oldSignUp = ExchangeProfile.where(user_id: current_user.id, exchange_id: event.id)
+        if(!oldSignUp.empty?)
+          redirect_to pages_path, :notice => "You have already signed up for this event!" and return false       
+        end
+
         xchangeprofile = ExchangeProfile.new(user_id: current_user.id, exchange_id: event.id, gift_received:false)
         xchangeprofile.save
     end
-    
+
     if @form.save
   		redirect_to pages_path, :notice => "Thank you for signing up"
   	else

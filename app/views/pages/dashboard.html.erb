@@ -6,11 +6,8 @@
 
       <div class="open">
         <p><%= exchange.name %></p>
-        <% if current_user.try(:admin?) %>
           <td><%= link_to 'Show', exchange %></td>
-          <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
-          <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
-        <% end %>
+          <td><%= link_to 'Your match', "#" %></td>
         <div class="thumbnail">
           <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> />
         </div>
