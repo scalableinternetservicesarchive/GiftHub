@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'photos/new'
+
+  get 'photos/index'
+
+  get 'photos/show'
+
+  get 'photos/edit'
+
+  get 'photos/create'
+
+  get 'photos/update'
+
+  get 'photos/destroy'
+
   get 'forms/index'
 
   get 'forms/create'
@@ -7,6 +21,7 @@ Rails.application.routes.draw do
   resources :exchanges
   resources :forms
   resources :pages
+  resources :photos
   
   root 'pages#index'
 
