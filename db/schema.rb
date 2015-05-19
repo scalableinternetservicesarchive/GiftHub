@@ -77,13 +77,8 @@ ActiveRecord::Schema.define(version: 20150519020819) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer  "gallery_id",         null: false
-    t.binary   "data",               null: false
-    t.string   "caption",            null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"    
-    t.datetime "image_updated_at"   
+    t.string "image_file_name",    limit: 255
+    t.string "image_content_type", limit: 255
   end
 
   create_table "questions", force: :cascade do |t|

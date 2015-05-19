@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   def new
+    @photo = Photo.new
   end
 
   def index
@@ -14,11 +15,13 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(:image => params[:photo][:image], :image_file_name => "shit" , :image_content_type => 1, :image_file_size => 1, :image_updated_at => 1100)
-    if @photo.save!
-      render ('index')
-    else
-      render ('update')
+    @photo = Photo.new(:image => params[:photo][:image], :image_file_name => params[:photo][:image].original_filename, :image_content_type => params[:photo][:image].content_type)
+    respond_to do |format|
+      if @photo.save
+        format.html { redirect_to action: :index }
+      else
+        render ('update')
+      end
     end
     #using the image param and filling in the other info create a new Photo and make variable called photo.
     #save that photo to Photo.all table. 
@@ -34,7 +37,9 @@ class PhotosController < ApplicationController
 
   private
     def photo_params 
-      params.require(:photo).permit(:image, :image_file_name, :image_content_type, :image_file_size, :image_updated_at)
+      params.require(:photo).permit(:image, :image_file_name, :image_content_type)
+      # params.require(:photo).permit(:image, :image_file_name, :image_content_type, :image_file_size, :image_updated_at)
+
     end
 
 end

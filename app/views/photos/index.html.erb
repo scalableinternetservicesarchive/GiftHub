@@ -4,6 +4,6 @@
 <%= console %>
 <% @photos.each do |p| %>
 	<tr>
-		<td><%= image_tag photo.image.url(:thumb) %>
+		<td><%= image_tag p.image.url(:large) %>
 	</tr>
 <% end %>
