@@ -1,0 +1,9 @@
+<h1>Photos#index</h1>
+<p>Find me in app/views/photos/index.html.erb</p>
+
+<%= console %>
+<% @photos.each do |p| %>
+	<tr>
+		<td><%= image_tag photo.image.url(:thumb) %>
+	</tr>
+<% end %>
