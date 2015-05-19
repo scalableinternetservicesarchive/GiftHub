@@ -11,6 +11,13 @@ class FormsController < ApplicationController
   	@currentExchange = params[:name]
     @currentExchangeID = params[:exchange_id]
   	# raise @currentExchange
+
+    event = Exchange.find(params[:exchange_id])
+    oldSignUp = ExchangeProfile.where(user_id: current_user.id, exchange_id: event.id)
+    if(!oldSignUp.empty?)
+      redirect_to pages_path, :notice => "You have already signed up for this event!" and return false       
+    end
+    
   end
 
   def create

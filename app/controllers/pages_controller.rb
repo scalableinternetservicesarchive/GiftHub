@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@exchanges = Exchange.all #.select { |e| Time.at(e.registration_end) > DateTime.now }
+  	@exchanges = Exchange.all #s.select { |e| Time.at(e.registration_end) > DateTime.now }
 
     respond_to do |format|
       format.html
