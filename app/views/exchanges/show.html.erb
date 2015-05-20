@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-        <div class="thumbnail">
-          <img alt= <%= @exchange.name %> src= <%= @exchange.thumburl %> />
-        </div>
+<div class="thumbnail">
+  <img alt= <%= @exchange.name %> src= <%= @exchange.thumburl %> />
+</div>
         
 <p>
   <b>Name:</b>
@@ -24,4 +24,4 @@
   <%= @exchange.registration_end %>
 </p>
 
-<%= link_to 'Back', exchange_path %>
+<%= link_to 'Back', exchanges_path %>

@@ -7,6 +7,9 @@ class FormsController < ApplicationController
   end
 
   def new
+    if(!user_signed_in?)
+      redirect_to pages_path, :notice => "You need to sign in to participate!" and return false   
+    end
   	@form = Form.new
   	@currentExchange = params[:name]
     @currentExchangeID = params[:exchange_id]
