@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+      @photo = Photo.new
   	  @myExchangeProfiles = ExchangeProfile.all.select { |e| e.user_id ==  current_user.id }
   	  @myExchanges = []
       for event in @myExchangeProfiles
@@ -19,4 +20,5 @@ class PagesController < ApplicationController
       end
 
   end
+  
 end
