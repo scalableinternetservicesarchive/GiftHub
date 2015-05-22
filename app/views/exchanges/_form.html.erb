@@ -14,13 +14,57 @@
   </div>
     <div class="field">
     <%= f.label :registration_start %><br />
-    <%= f.text_field :registration_start %>
+    <%= f.date_field :registration_start %>
   </div>
     <div class="field">
     <%= f.label :registration_end %><br />
-    <%= f.text_field :registration_end %>
+    <%= f.date_field :registration_end %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      restrictToFutureDates();
+
+      $('#exchange_registration_start, #exchange_registration_end').blur(function() {
+        constrainEndDate();
+      });
+  });
+
+  function restrictToFutureDates() {
+      var dtToday = new Date();
+
+      var month = dtToday.getMonth() + 1;
+      var day = dtToday.getDate();
+      var year = dtToday.getFullYear();
+
+      if(month < 10)
+          month = '0' + month.toString();
+      if(day < 10)
+          day = '0' + day.toString();
+
+      var minDate = year + '-' + month + '-' + day;
+      $('#exchange_registration_start').attr('min', minDate);
+      $('#exchange_registration_end').attr('min', minDate);
+  }
+
+    function constrainEndDate() {console.log('checking');
+        var regStartVal = $('#exchange_registration_start').val().split('-');
+        var regStart = new Date(Date.parse(regStartVal));
+        var minDate = regStart.getFullYear() + '-' + (regStart.getMonth() + 1 < 10 ? '0' : '') + (regStart.getMonth() + 1) + '-' + (regStart.getDate() < 10 ? '0' : '') + (regStart.getDate() + 1);
+
+        if($('#exchange_registration_end').val() !== '') {
+            var regEndVal = $('#exchange_registration_start').val().split('-');
+            var regEnd = new Date(Date.parse(regEndVal));
+
+            if (regEnd <= regStart) {
+                $('#exchange_registration_end').val(minDate);
+            }
+        } else {
+            $('#exchange_registration_end').val(minDate);
+        }
+    }
+</script>

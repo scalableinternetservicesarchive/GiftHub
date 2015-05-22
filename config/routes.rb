@@ -18,6 +18,19 @@ Rails.application.routes.draw do
   get 'forms/create'
 
   devise_for :users
+
+  # authenticate :user do
+  #   resources :exchanges, only: [:new, :edit, :update, :destroy]
+  # end
+  #
+  # authenticated :user do
+  #   resources :forms
+  # end
+
+  authenticated :user, -> user { user.admin? } do
+    match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+  end
+
   resources :exchanges
   resources :forms
   resources :pages
@@ -29,7 +42,12 @@ Rails.application.routes.draw do
 
   get 'exchanges' => 'exchanges#index'
 
+  if Rails.env.production?
+    get '404', :to => 'application#page_not_found'
+  end
+
   get 'dashboard' => 'pages#dashboard'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

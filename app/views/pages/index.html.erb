@@ -1,43 +1,93 @@
+<link rel="stylesheet" type="text/css" href="http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css">
+<script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/timeline.js"></script>
+<script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
 
-<div class="center jumbotron">
-  <h1>Welcome to the <b>GiftHub</b></h1>
+<style>
+    html, body, .container, .container-fluid {
+        width: 100%;
+        height: 100%;
+    }
 
-  <h2>
-    Find your favorite events and exchange gifts with strangers!
-  </h2>
-    <% if !user_signed_in? %>
-      <%= link_to "Join Now!", new_user_registration_path, class: "btn btn-lg btn-primary", style: "margin-bottom: 10px" %>
-    <% end %>
+    .content-row {
+        height: 100%;
+    }
+
+    .content-row * {
+        height: 100%;
+    }
+</style>
+
+<script type="text/javascript">
+    var timeline;
+  $(document).ready(function() {
+    loadExchJSON();
+
+  });
+    function loadExchJSON() {
+        $.ajax({
+            type: "GET",
+            url: "/",
+            dataType: "json"
+        }).done(function(data, status, jqXHR) {
+            console.log("success");
+            console.log(data);
+            console.log(jqXHR);
+
+            var timelineExchs = [];
+
+            data.forEach(function(el) {
+                var regStartDate = new Date(el.registration_start);
+                var regEndDate = new Date(el.registration_end);
+                timelineExchs.push({
+                    "startDate": regStartDate.getFullYear() + "," + (regStartDate.getMonth() + 1) + "," + regStartDate.getDate(),
+                    "endDate": regEndDate.getFullYear() + "," + (regEndDate.getMonth() + 1) + "," + regEndDate.getDate(),
+                    "headline": el.name,
+                    "text": el.description + (regStartDate < Date.now() ? '<br/><a class="btn btn-success" href="/forms/new?name=' + el.name : '') + '">Sign Up</a>',
+                    //            "tag":,
+                    //            "classname":,
+                    "asset": {
+                        "media": el.thumburl
+                    }
+                })
+            });
+
+            timeline = { "timeline": {
+                "headline": "Exchanges",
+                "type": "default",
+                "text": "Sign up for various themed gift exchanges, meet new people with similar interests, and make new friends!",
+                "asset": {
+                    "media": "http://www.housesittingjobs.com/wp-content/uploads/2012/11/gifts.jpg",
+                    "credit": "Smart Clip Art",
+                    "Caption": "Gift Exchange"
+                },
+                "date": timelineExchs
+            }};
+
+            console.log(timelineExchs);
+            console.log(timeline);
+
+            createStoryJS({
+                type:       'timeline',
+                width:      '100%',
+                height:     '100%',
+                source:     timeline,
+                embed_id:   'exchange-timeline'
+            });
+
+            $('.btn')
+
+        }).fail(function(data) {
+            console.log("failure");
+            console.log(data);
+        });
+    }
+</script>
+
+<div class="row content-row">
+  <!--<div class="col-md-12" style="height: 100%;">-->
+    <div id="exchange-timeline"></div>
+  <!--</div>-->
 </div>
-  <div ng-controller="MainCtrl" id="content">
-    <div ng-controller="ExchangePagingCtrl" class="container-fluid">
-      <h1>Current Exchanges</h1>
-      <div class="row" style="padding-top: 2em" >
-        <div class="col-xs-6 col-md-10 col-md-offset-1 col-xs-offset-3">
-          <div class="row row-centered">
-            <% @exchanges.each do |exchange| %>
-                <div class="col-md-3 col-centered" style="height: 20em">
-                  <p><%= exchange.name %></p>
-                    <div class="row" style="padding-bottom: 1em">
-                      <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="img-responsive center-block" />
-                    </div>
-                    <div class="row">
-                      <!-- <div class="col-md-offset-1"> -->
-                          <%= link_to "Sign Up", 
-                          new_form_path(:name => exchange.name, :exchange_id => exchange.id), 
-                          class: "btn btn-warning" %>
-                      <!-- </div> -->
-                    </div>
-                  
-                </div>
-            <% end %>
-          </div>
-          <div class="row">
-            <pager total-items="totalItems" ng-model="currentPage"></pager>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 
