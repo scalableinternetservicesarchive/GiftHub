@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'photos/new'
+
+  get 'photos/index'
+
+  get 'photos/show'
+
+  get 'photos/edit'
+
+  get 'photos/create'
+
+  get 'photos/update'
+
+  get 'photos/destroy'
+
   get 'forms/index'
 
   get 'forms/create'
@@ -20,6 +34,7 @@ Rails.application.routes.draw do
   resources :exchanges
   resources :forms
   resources :pages
+  resources :photos
   
   root 'pages#index'
 
@@ -30,6 +45,9 @@ Rails.application.routes.draw do
   if Rails.env.production?
     get '404', :to => 'application#page_not_found'
   end
+
+  get 'dashboard' => 'pages#dashboard'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

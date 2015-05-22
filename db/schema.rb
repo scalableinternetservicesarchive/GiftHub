@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512191837) do
+ActiveRecord::Schema.define(version: 20150519020819) do
 
   create_table "campuses", force: :cascade do |t|
     t.string "name",         null: false
@@ -93,9 +93,8 @@ ActiveRecord::Schema.define(version: 20150512191837) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "gallery_id", null: false
-    t.binary  "data",       null: false
-    t.string  "caption",    null: false
+    t.string "image_file_name",    limit: 255
+    t.string "image_content_type", limit: 255
   end
 
   create_table "questions", force: :cascade do |t|

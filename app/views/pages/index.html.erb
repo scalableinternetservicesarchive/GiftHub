@@ -89,44 +89,46 @@
   <!--</div>-->
 </div>
 
-<!--<div class="center jumbotron">-->
-  <!--<h1>Welcome to the <b>GiftHub</b></h1>-->
+<div class="center jumbotron">
+  <h1>Welcome to the <b>GiftHub</b></h1>
+  <h2>
+    Find your favorite events and exchange gifts with strangers!
+  </h2>
+    <% if !user_signed_in? %>
+      <%= link_to "Join Now!", new_user_registration_path, class: "btn btn-lg btn-primary", style: "margin-bottom: 10px" %>
+    <% end %>
+</div>
+  <div ng-controller="MainCtrl" id="content">
+    <div ng-controller="ExchangePagingCtrl" class="container-fluid">
+      <h1>Current Exchanges</h1>
+      <div class="row" style="padding-top: 2em" >
+        <div class="col-xs-6 col-md-10 col-md-offset-1 col-xs-offset-3">
+          <div class="row row-centered">
+            <% @exchanges.each do |exchange| %>
+                <div class="col-md-3 col-centered" style="height: 20em">
+                  <p><%= exchange.name %></p>
+                    <div class="row" style="padding-bottom: 1em">
+                      <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="img-responsive center-block" />
+                    </div>
+                    <div class="row">
+                      <!-- <div class="col-md-offset-1"> -->
+                          <%= link_to "Sign Up", 
+                          new_form_path(:name => exchange.name, :exchange_id => exchange.id), 
+                          class: "btn btn-warning" %>
+                      <!-- </div> -->
+                    </div>
+                  
+                </div>
+            <% end %>
+          </div>
+          <div class="row">
+            <pager total-items="totalItems" ng-model="currentPage"></pager>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!--<h2>-->
-    <!--Find your favorite events and exchange gifts with strangers!-->
-  <!--</h2>-->
-    <!--<% if !user_signed_in? %>-->
-      <!--<%= link_to "Join Now!", new_user_registration_path, class: "btn btn-lg btn-primary", style: "margin-bottom: 10px" %>-->
-    <!--<% end %>-->
-<!--</div>-->
 
-  <!--<div ng-controller="MainCtrl" id="content">-->
-    <!--<div ng-controller="ExchangePagingCtrl" class="container-fluid">-->
-      <!--<h1>Current Exchanges</h1>-->
-      <!--<div class="row" style="padding-top: 2em" >-->
-        <!--<div class="col-xs-6 col-md-10 col-md-offset-1 col-xs-offset-3">-->
-          <!--<div class="row row-centered">-->
-            <!--<% @exchanges.each do |exchange| %>-->
-                <!--<div class="col-md-3 col-centered" style="height: 20em">-->
-                  <!--<p><%= exchange.name %></p>-->
-                    <!--<div class="row" style="padding-bottom: 1em">-->
-                      <!--<img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="img-responsive center-block" />-->
-                    <!--</div>-->
-                    <!--<div class="row">-->
-                      <!--&lt;!&ndash; <div class="col-md-offset-1"> &ndash;&gt;-->
-                          <!--<%= link_to "Sign Up", new_form_path(:name => exchange.name), class: "btn btn-warning" %>-->
-                      <!--&lt;!&ndash; </div> &ndash;&gt;-->
-                    <!--</div>-->
-                  <!-- -->
-                <!--</div>-->
-            <!--<% end %>-->
-          <!--</div>-->
-          <!--<div class="row">-->
-            <!--<pager total-items="totalItems" ng-model="currentPage"></pager>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
 

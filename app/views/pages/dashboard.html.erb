@@ -1,0 +1,26 @@
+<h1>Dashboard</h1>
+
+<div class="container">
+    <h3>Events you signed up</h3>
+    <% @myExchanges.each  do |exchange| %>
+
+      <div class="open">
+        <%= form_for @photo, html: { multipart: true } do |f| %>
+          <div class="field">
+            <%= f.label :image %><br>
+            <%= f.file_field :image %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Upload"%>
+          </div>
+        <% end %>
+
+        <p><%= exchange.name %></p>
+          <td><%= link_to 'Detail', exchange %></td> | 
+          <td><%= link_to 'Your match', "#" %></td>
+        <div class="thumbnail">
+          <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> />
+        </div>
+      </div>
+    <% end %>
+  </div>
