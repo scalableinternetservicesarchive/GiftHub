@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@exchanges = Exchange.all #s.select { |e| Time.at(e.registration_end) > DateTime.now }
+  	@exchanges = Exchange.select { |e| Time.at(e.registration_end) > DateTime.now && e.registration_start <= DateTime.now}
 
     respond_to do |format|
       format.html
@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+      @photo = Photo.new
   	  @myExchangeProfiles = ExchangeProfile.all.select { |e| e.user_id ==  current_user.id }
   	  @myExchanges = []
       for event in @myExchangeProfiles
@@ -19,4 +20,5 @@ class PagesController < ApplicationController
       end
 
   end
+  
 end

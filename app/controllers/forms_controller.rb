@@ -1,5 +1,5 @@
 class FormsController < ApplicationController
-
+	before_action :authenticate_user!, :except => [:show, :index]
 	@currentExchange
 
   def index
@@ -7,9 +7,18 @@ class FormsController < ApplicationController
   end
 
   def new
+
     if(!user_signed_in?)
       redirect_to pages_path, :notice => "You need to sign in to participate!" and return false   
     end
+
+		@currentExchange = params[:name]
+		if exchange = Exchange.find_by_name(@currentExchange)
+			if exchange.registration_start > DateTime.now
+				redirect_to pages_path, :notice => "Sorry, the registration period for this exchange has not yet started. Please check back when registration is open."
+			end
+		end
+    
   	@form = Form.new
   	@currentExchange = params[:name]
     @currentExchangeID = params[:exchange_id]

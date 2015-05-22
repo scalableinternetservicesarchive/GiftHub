@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506023444) do
+ActiveRecord::Schema.define(version: 20150519020819) do
 
   create_table "campuses", force: :cascade do |t|
     t.string "name",         null: false
@@ -27,6 +27,22 @@ ActiveRecord::Schema.define(version: 20150506023444) do
     t.integer "user_id",    null: false
     t.string  "value",      null: false
   end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "exchange_profiles", force: :cascade do |t|
     t.integer "user_id",               null: false
@@ -77,9 +93,8 @@ ActiveRecord::Schema.define(version: 20150506023444) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "gallery_id", null: false
-    t.binary  "data",       null: false
-    t.string  "caption",    null: false
+    t.string "image_file_name",    limit: 255
+    t.string "image_content_type", limit: 255
   end
 
   create_table "questions", force: :cascade do |t|

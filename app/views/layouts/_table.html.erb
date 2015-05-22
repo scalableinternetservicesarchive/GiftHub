@@ -1,19 +1,32 @@
 <div class="container">
-    <h3>Open Events</h3>
-    <% @open_exchanges.each do |exchange| %>
-      <div class="open">
-        <p><%= exchange.name %></p>
-        <% if current_user.try(:admin?) %>
-          <td><%= link_to 'Show', exchange %></td>
-          <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
-          <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
-        <% end %>
-        <div class="thumbnail">
-          <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> />
+  <h3>Open Events</h3>
+  <div class="row" style="padding-top: 2em" >
+    <div class="col-xs-6 col-md-10 col-md-offset-1 col-xs-offset-3">
+      <div class="row row-centered">
+  <% @open_exchanges.each do |exchange| %>
+        <div class="col-md-3 col-centered open" style="padding-bottom: 1em">
+          <p><%= exchange.name %></p>
+          <div class="row" style="padding-bottom: 1em;">
+            <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="img-thumbnail img-responsive center-block" />
+            <% link_to image_tag(exchange.thumburl, border: 0), new_form_path(:name => exchange.name) %>
+            <% if current_user.try(:admin?) %>
+                <td><%= link_to 'Show', exchange %></td>
+                <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
+                <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
+            <% end %>
+          </div>
+          <div class="row">
+            <!-- <div class="col-md-offset-1"> -->
+            <%= link_to "Sign Up", new_form_path(:name => exchange.name), class: "btn btn-warning" %>
+            <!-- </div> -->
+          </div>
+
         </div>
+  <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
+<<<<<<< HEAD
   <div class="container">
     <h3>Past Events</h3>
     <% @past_exchanges.each do |exchange| %>
@@ -31,3 +44,26 @@
       </div>
     <% end %>
   </div>
+=======
+</div>
+<div class="container">
+  <h3>Past Events</h3>
+  <div class="row" style="padding-top: 2em" >
+    <div class="col-xs-6 col-md-10 col-md-offset-1 col-xs-offset-3">
+      <div class="row row-centered">
+      <% @past_exchanges.each do |exchange| %>
+          <div class="col-md-3 col-centered past" style="padding-bottom: 1em">
+            <p><%= exchange.name %></p>
+            <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="img-thumbnail img-responsive center-block" />
+            <% if current_user.try(:admin?) %>
+                <td><%= link_to 'Show', exchange %></td>
+                <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
+                <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+>>>>>>> master

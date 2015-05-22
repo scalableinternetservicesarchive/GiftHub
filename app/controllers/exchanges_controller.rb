@@ -1,7 +1,18 @@
+# require_relative '../../app/helpers/exchanges_helper'
+
 class ExchangesController < ApplicationController
+  # include ExchangesHelper
+  before_action :authenticate_user!, :except => [:show, :index]
+
 	def index
-		@open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now }
-		@past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now }
+    if current_user.try(:admin?)
+      @open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now }
+      @past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now }
+    else
+      @open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now && e.registration_start <= DateTime.now}
+      @past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now && e.registration_start <= DateTime.now}
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @open_exchanges }
@@ -38,6 +49,8 @@ class ExchangesController < ApplicationController
 
     respond_to do |format|
       if @exchange.save
+        ExchangeMatchJob.set( wait_until: @exchange.registration_end ).perform_later @exchange
+        # ExchangeMatchJob.set( wait: 1.minute ).perform_later @exchange
         format.html { redirect_to(@exchange, :notice => 'Exchange was successfully created.') }
         format.xml  { render :xml => @exchange, :status => :created, :location => @exchange }
       else
@@ -97,6 +110,5 @@ class ExchangesController < ApplicationController
 	private
 	def exchange_params
 		params.require(:exchange).permit(:name, :thumburl, :description, :registration_start, :registration_end)
-	end
-
+  end
 end

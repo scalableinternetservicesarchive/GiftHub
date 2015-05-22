@@ -16,6 +16,15 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use delayed job for background operations
+gem 'delayed_job_active_record'
+# Use whenever to schedule cron jobs
+gem 'whenever', :require => false
+# Add daemon to start job
+gem 'daemons'
+# Add web interface for monitoring jobs
+gem 'delayed_job_web'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Use Angular.js
@@ -49,3 +58,5 @@ group :development, :test do
   gem 'spring'
 end
 gem 'devise'
+
+gem "paperclip", "~> 4.2"
