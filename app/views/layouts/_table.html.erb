@@ -23,6 +23,7 @@
           <td><%= link_to 'Show', exchange %></td>
           <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
           <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to 'Match!', exchange %></td>
         <% end %>
         <div class="thumbnail">
           <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> />
