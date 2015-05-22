@@ -89,6 +89,24 @@ class ExchangesController < ApplicationController
     end
   end
 
+  # def match
+  #   @exchange = Exchange.find(params[:id])
+  #   @exchangeProfileList = ExchangeProfile.all.select { |e| e.exchange_id ==  @exchange.id }
+  #   @userLists = []
+  #   for event in @exchangeProfileList
+  #     item = User.find_by(id: event.user_id) #use find by to avoid not found exception
+  #     if(item != nil)
+  #       @userLists.append(item)
+  #     end
+  #   end
+
+  #   while userList.size >= 2
+  #     userA = userList.pop
+  #     userB = userList.pop
+  #      # set schema and save record
+  #   end
+  # end
+
 	private
 	def exchange_params
 		params.require(:exchange).permit(:name, :thumburl, :description, :registration_start, :registration_end)
