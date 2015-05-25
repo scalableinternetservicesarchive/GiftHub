@@ -1,1 +1,2 @@
 rake db:seed
+rake jobs:work
