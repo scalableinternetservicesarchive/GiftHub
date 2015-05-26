@@ -52,7 +52,7 @@ class FormsController < ApplicationController
         xchangeprofile = ExchangeProfile.new(user_id: current_user.id, exchange_id: event.id, gift_received:false)
         xchangeprofile.save
     end
-
+    
     if @form.save
   		redirect_to pages_path, :notice => "Thank you for signing up"
   	else
