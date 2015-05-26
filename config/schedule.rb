@@ -21,9 +21,11 @@
 
 set :output, "~/Documents/GiftHub/log/cron_log.log"
 every :reboot do
-  command "cd ~/Documents/GiftHub && RAILS_ENV=production script/delayed_job start"
+  command "RAILS_ENV=development bin/delayed_job start"
+  command "RAILS_ENV=production bin/delayed_job start"
 end
 
 every 10.hours do
-  command "cd ~/Documents/GiftHub && RAILS_ENV=production script/delayed_job restart"
+  command "RAILS_ENV=development bin/delayed_job start"
+  command "RAILS_ENV=production bin/delayed_job restart"
 end
