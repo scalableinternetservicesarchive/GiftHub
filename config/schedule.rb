@@ -19,19 +19,24 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, "~/Documents/GiftHub/log/cron_log.log"
+# == development ==
+# set :output, "~/Documents/GiftHub/log/cron_log.log"
+#
+# every :reboot do
+#   command "RAILS_ENV=development bin/delayed_job start"
+# end
+#
+# every 1.hour do
+#   command "RAILS_ENV=development bin/delayed_job start"
+# end
+
+# == production ==
+set :output, "~/app/log/cron_log.log"
+
 every :reboot do
-  if Rails.env.development?
-    command "RAILS_ENV=development bin/delayed_job start"
-  elsif Rails.env.production?
-    command "cd ~/app && RAILS_ENV=production bin/delayed_job start"
-  end
+  command "cd ~/app && RAILS_ENV=production bin/delayed_job start"
 end
 
 every 1.hour do
-  if Rails.env.development?
-    command "RAILS_ENV=development bin/delayed_job start"
-  elsif Rails.env.production?
-    command "cd ~/app && RAILS_ENV=production bin/delayed_job restart"
-  end
+  command "cd ~/app && RAILS_ENV=production bin/delayed_job restart"
 end
