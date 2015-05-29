@@ -19,9 +19,12 @@
 
 # Learn more: http://github.com/javan/whenever
 
+# run 'whenever --update-crontab GiftHub' to add cron jobs
+# run 'crontab -l' to list the cron jobs added
+
 # == development ==
 # set :output, "~/Documents/GiftHub/log/cron_log.log"
-#
+# command "RAILS_ENV=development bin/delayed_job start"
 # every :reboot do
 #   command "RAILS_ENV=development bin/delayed_job start"
 # end
@@ -32,6 +35,7 @@
 
 # == production ==
 set :output, "~/app/log/cron_log.log"
+command "cd ~/app && RAILS_ENV=production bin/delayed_job start"
 
 every :reboot do
   command "cd ~/app && RAILS_ENV=production bin/delayed_job start"
