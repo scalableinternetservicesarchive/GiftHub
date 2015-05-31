@@ -1,1 +1,2 @@
 rake db:seed
+cd ~/app && RAILS_ENV=production bin/delayed_job start

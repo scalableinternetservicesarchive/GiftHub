@@ -24,18 +24,17 @@
 
 # == development ==
 # set :output, "~/Documents/GiftHub/log/cron_log.log"
-# command "RAILS_ENV=development bin/delayed_job start"
+
 # every :reboot do
 #   command "RAILS_ENV=development bin/delayed_job start"
 # end
-#
+
 # every 1.hour do
 #   command "RAILS_ENV=development bin/delayed_job start"
 # end
 
 # == production ==
 set :output, "~/app/log/cron_log.log"
-command "cd ~/app && RAILS_ENV=production bin/delayed_job start"
 
 every :reboot do
   command "cd ~/app && RAILS_ENV=production bin/delayed_job start"
