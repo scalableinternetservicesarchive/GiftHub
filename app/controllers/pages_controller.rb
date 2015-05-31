@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@exchanges = Exchange.select { |e| Time.at(e.registration_end) > DateTime.now && e.registration_start <= DateTime.now}
+  	@exchanges = Exchange.where("registration_end > :now AND registration_start <= :now", { now: DateTime.now })
 
     respond_to do |format|
       format.html

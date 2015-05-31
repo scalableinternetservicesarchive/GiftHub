@@ -6,11 +6,11 @@ class ExchangesController < ApplicationController
 
 	def index
     if current_user.try(:admin?)
-      @open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now }
-      @past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now }
+      @open_exchanges = Exchange.where("registration_end > ?", DateTime.now)
+      @past_exchanges = Exchange.where("registration_end < ?", DateTime.now)
     else
-      @open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now && e.registration_start <= DateTime.now}
-      @past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now && e.registration_start <= DateTime.now}
+      @open_exchanges = Exchange.where("registration_end > :now AND registration_start <= :now", { now: DateTime.now })
+      @past_exchanges = Exchange.where("registration_end < :now AND registration_start <= :now", { now: DateTime.now })
     end
 
     respond_to do |format|
