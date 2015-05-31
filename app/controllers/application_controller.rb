@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
+  # protect_from_forgery with: :exception
 
   def page_not_found
     respond_to do |format|
