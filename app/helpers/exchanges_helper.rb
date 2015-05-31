@@ -41,4 +41,8 @@ module ExchangesHelper
     end
   end
   handle_asynchronously :generate_matches
+
+  def cache_key_for_exchange_row(exchange)
+    "exchange-#{exchange.id}"
+  end
 end

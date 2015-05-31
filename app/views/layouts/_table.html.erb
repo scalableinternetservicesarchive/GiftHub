@@ -4,6 +4,7 @@
     <div class="col-xs-6 col-md-10 col-md-offset-1 col-xs-offset-3">
       <div class="row row-centered">
   <% @open_exchanges.each do |exchange| %>
+    <% cache(cache_key_for_exchange_row(exchange)) do %>
         <div class="col-md-3 col-centered open" style="padding-bottom: 1em">
           <p><%= exchange.name %></p>
           <div class="row" style="padding-bottom: 1em;">
@@ -20,8 +21,8 @@
             <%= link_to "Sign Up", new_form_path(:name => exchange.name, :exchange_id => exchange.id), class: "btn btn-warning" %>
             <!-- </div> -->
           </div>
-
         </div>
+    <% end %>
   <% end %>
       </div>
     </div>
@@ -33,6 +34,7 @@
     <div class="col-xs-6 col-md-10 col-md-offset-1 col-xs-offset-3">
       <div class="row row-centered">
       <% @past_exchanges.each do |exchange| %>
+        <% cache(cache_key_for_exchange_row(exchange)) do %>
           <div class="col-md-3 col-centered past" style="padding-bottom: 1em">
             <p><%= exchange.name %></p>
             <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="img-thumbnail img-responsive center-block" />
@@ -42,6 +44,7 @@
                 <td><%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %></td>
             <% end %>
           </div>
+        <% end %>
       <% end %>
     </div>
   </div>
