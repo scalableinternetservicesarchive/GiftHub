@@ -22,6 +22,18 @@ ActiveRecord::Base.transaction do
         nerf_exchange = Exchange.create(name: 'Nerf', thumburl: 'http://i296.photobucket.com/albums/mm199/ArR0ws0fLlfe/DSC00595.jpg', description: 'Nerf-related item exchange', registration_start: '2015-05-30 00:00:00', registration_end: '2015-06-05 00:00:00', gift_due_date: '2015-06-12 00:00:00')
         tom_hanks_exchange = Exchange.create(name: 'Tom Hanks', thumburl: 'http://assets-s3.mensjournal.com/img/article/tom-hanks-the-mj-interview/298_298_tom-hanks-the-mj-interview.jpg', description: 'Tom Hanks-related item exchange', registration_start: '2015-06-05 00:00:00', registration_end: '2015-06-12', gift_due_date: '2015-06-20 00:00:00')
         jewelry_exchange = Exchange.create(name: 'Jewelry', thumburl: 'http://www.qccrimestoppers.com/images/jewelry.jpg', description: 'Jewelry-related item exchange', registration_start: '2015-06-05 00:00:00', registration_end: '2015-06-17 00:00:00', gift_due_date: '2015-06-20 00:00:00')
+        
+        start = 0
+        10000.times do |i|
+            x = Exchange.create(
+            name:'Exchange#{i}', 
+            thumburl:'http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg', 
+            description: 'Exchange#{i}', 
+            registration_start: '2015-05-13 00:00:00', 
+            registration_end: '2015-05-27 00:00:00', 
+            gift_due_date: '2015-06-05 00:00:00')
+            x.save!
+        end    
     end
 
     unless User.exists?(email: "admin@admin.com")
@@ -31,42 +43,6 @@ ActiveRecord::Base.transaction do
             password:              '11111111',
             encrypted_password: Devise.bcrypt(User, '11111111'),
             admin: true
-        )
-
-        # Add test users
-        User.create!(
-            email: "user1@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
-
-        User.create!(
-            email: "user2@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
-
-        User.create!(
-            email: "user3@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
-
-        User.create!(
-            email: "user4@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
-
-        User.create!(
-            email: "user5@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
         )
     end
 
