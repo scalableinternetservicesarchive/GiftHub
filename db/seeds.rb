@@ -24,11 +24,40 @@ ActiveRecord::Base.transaction do
         jewelry_exchange = Exchange.create(name: 'Jewelry', thumburl: 'http://www.qccrimestoppers.com/images/jewelry.jpg', description: 'Jewelry-related item exchange', registration_start: '2015-06-05 00:00:00', registration_end: '2015-06-17 00:00:00', gift_due_date: '2015-06-20 00:00:00')
     end
 
+    unless Exchange.count >= 10000
+        10000.times do |i|
+          # unless i > 0
+          #   rand_num = rand(-1..1)
+          # else
+          #   rand_num = rand((i*(-1))..i)
+          # end
+          # start_date = Date.today + rand_num
+          # end_date = Date.today + (i > 0 ? rand(rand_num..i) : rand_num + rand(1..5))
+          # Exchange.create(
+          #     name: "Exchange#{i}",
+          #     thumburl: "http://lorempixel.com/300/200/",
+          #     description: "Exchange#{i} description",
+          #     registration_start: start_date.to_datetime,
+          #     registration_end: end_date.to_datetime,
+          #     gift_due_date: end_date.to_datetime + 7
+          # )
+
+            Exchange.create(
+                name:"Exchange#{i}",
+                thumburl:'http://lorempixel.com/300/200/',
+                description: "Exchange#{i}",
+                registration_start: '2015-05-13 00:00:00',
+                registration_end: '2015-05-27 00:00:00',
+                gift_due_date: '2015-06-05 00:00:00'
+            )
+        end
+    end
+
     unless User.exists?(email: "admin@admin.com")
         #add a admin user
         User.create!(
             email: "admin@admin.com",
-            password:              '11111111',
+            password: "11111111",
             encrypted_password: Devise.bcrypt(User, '11111111'),
             admin: true
         )
