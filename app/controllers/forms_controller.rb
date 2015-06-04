@@ -1,6 +1,7 @@
 class FormsController < ApplicationController
 	before_action :authenticate_user!, :except => [:show, :index]
 	@currentExchange
+  @@myEvent
 
   def index
   	@forms = Form.all
@@ -25,6 +26,7 @@ class FormsController < ApplicationController
   	# raise @currentExchange
 
     event = Exchange.find(params[:exchange_id])
+    @@myEvent = event
     oldSignUp = ExchangeProfile.where(user_id: current_user.id, exchange_id: event.id)
     if(!oldSignUp.empty?)
       redirect_to pages_path, :notice => "You have already signed up for this event!" and return false       
@@ -39,16 +41,9 @@ class FormsController < ApplicationController
       :notes => params[:form][:notes], 
       :favorite => params[:form][:favorite])
 
-    event = Exchange.find_by(name: params[:currentExchange])
+    event = @@myEvent
 
     if (event != nil)
-        
-        # PREVENT DUPLICATE SUBMISSIONS: CHECK OLD SIGN UP!
-        oldSignUp = ExchangeProfile.where(user_id: current_user.id, exchange_id: event.id)
-        if(!oldSignUp.empty?)
-          redirect_to pages_path, :notice => "You have already signed up for this event!" and return false       
-        end
-
         xchangeprofile = ExchangeProfile.new(user_id: current_user.id, exchange_id: event.id, gift_received:false)
         xchangeprofile.save
     end
