@@ -24,7 +24,7 @@ ActiveRecord::Base.transaction do
         jewelry_exchange = Exchange.create(name: 'Jewelry', thumburl: 'http://www.qccrimestoppers.com/images/jewelry.jpg', description: 'Jewelry-related item exchange', registration_start: '2015-06-05 00:00:00', registration_end: '2015-06-17 00:00:00', gift_due_date: '2015-06-20 00:00:00')
         
         start = 0
-        10000.times do |i|
+        100000.times do |i|
             x = Exchange.create(
             name:'Exchange#{i}', 
             thumburl:'http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg', 
