@@ -46,7 +46,7 @@
                             </div>
                         <% end %>
 
-                        <% if !already_registered(exchange.id) %>
+                        <% if !user_signed_in? || (user_signed_in? && !already_registered(exchange.id)) %>
                         <div class="row" style="padding-bottom: 1em">
                           <%= link_to "Sign Up", "exchanges/#{exchange.id}/form", class: "btn btn-warning" %>
                         </div>
