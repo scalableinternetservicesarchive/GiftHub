@@ -6,5 +6,8 @@ class AddColumnsToExchanges < ActiveRecord::Migration
     add_column :exchanges, :gift_due_date, :datetime
     add_column :exchanges, :campus_id, :integer, :null => true
     add_column :exchanges, :category_id, :integer, :null => true
+
+    add_index :exchanges, :campus_id
+    add_index :exchanges, :category_id
   end
 end

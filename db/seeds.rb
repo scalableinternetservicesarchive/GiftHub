@@ -6,154 +6,240 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-ActiveRecord::Base.transaction do 
-    unless Exchange.exists?(name: 'Marvel')
-        # Past
-        marvel_exchange = Exchange.create(name:'Marvel', thumburl:'http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg', description: 'Marvel-related item exchange', registration_start: '2015-04-17 00:00:00', registration_end: '2015-04-25 00:00:00', gift_due_date: '2015-05-07 00:00:00')
-        lol_exchange = Exchange.create(name:'League of Legends', thumburl:'http://n3rdbomber.com/wp-content/uploads/2015/01/league-of-legends.jpg', description: 'League of Legends-related item exchange', registration_start: '2015-04-12 00:00:00', registration_end: '2015-04-17 00:00:00', gift_due_date: '2015-04-27 00:00:00')
+ActiveRecord::Base.transaction do
+  unless Exchange.exists?(name: 'Marvel')
+    # Past
+    marvel_exchange = Exchange.create(name:'Marvel', thumburl:'http://www.insidethemagic.net/wp-content/uploads/2013/02/marvel.jpg', description: 'Marvel-related item exchange', registration_start: '2015-04-17 00:00:00', registration_end: '2015-04-25 00:00:00', gift_due_date: '2015-05-07 00:00:00')
+    lol_exchange = Exchange.create(name:'League of Legends', thumburl:'http://n3rdbomber.com/wp-content/uploads/2015/01/league-of-legends.jpg', description: 'League of Legends-related item exchange', registration_start: '2015-04-12 00:00:00', registration_end: '2015-04-17 00:00:00', gift_due_date: '2015-04-27 00:00:00')
 
-        # Current
-        mario_exchange = Exchange.create(name:'Super Mario', thumburl:'http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg', description: 'Mario-related item exchange', registration_start: '2015-05-13 00:00:00', registration_end: '2015-05-27 00:00:00', gift_due_date: '2015-06-05 00:00:00')
-        thones_exchange = Exchange.create(name:'Game of Thrones', thumburl:'http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg', description: 'Game of Thrones-related item exchange', registration_start: '2015-05-17 00:00:00', registration_end: '2015-05-27 00:00:00', gift_due_date: '2015-06-05 00:00:00')
-        pokemon_exchange = Exchange.create(name: 'Pokemon', thumburl: 'http://beagamecharacter.com/wp-content/uploads/2013/01/Pokemon-Reveal.jpg', description: 'Pokemon-related item exchange', registration_start: '2015-05-17 00:00:00', registration_end: '2015-05-30 00:00:00', gift_due_date: '2015-06-12 00:00:00')
-        dc_exchange = Exchange.create(name: 'DC', thumburl: 'http://cdn1.sciencefiction.com/wp-content/uploads/2014/04/DCSuperHeroes.jpg', description: 'DC Comics-related item exchange', registration_start: '2015-05-17 00:00:00', registration_end: '2015-05-30 00:00:00', gift_due_date: '2015-06-12 00:00:00')
-        bunny_exchange = Exchange.create(name: 'Bunny', thumburl: 'http://www.clickreadshare.com/wp-content/uploads/bunny-on-a-bed-big.jpg', description: 'Bunny-related item exchange', registration_start: '2015-05-17 00:00:00', registration_end: '2015-05-30 00:00:00', gift_due_date: '2015-06-12 00:00:00')
-        plane_exchange = Exchange.create(name: 'Plane', thumburl: 'http://www.latestpilotjobs.com/ckfiles/images/1(22).jpg', description: 'Plane-related item exchange', registration_start: '2015-05-30 00:00:00', registration_end: '2015-06-05 00:00:00', gift_due_date: '2015-06-12 00:00:00')
-        nerf_exchange = Exchange.create(name: 'Nerf', thumburl: 'http://i296.photobucket.com/albums/mm199/ArR0ws0fLlfe/DSC00595.jpg', description: 'Nerf-related item exchange', registration_start: '2015-05-30 00:00:00', registration_end: '2015-06-05 00:00:00', gift_due_date: '2015-06-12 00:00:00')
-        tom_hanks_exchange = Exchange.create(name: 'Tom Hanks', thumburl: 'http://assets-s3.mensjournal.com/img/article/tom-hanks-the-mj-interview/298_298_tom-hanks-the-mj-interview.jpg', description: 'Tom Hanks-related item exchange', registration_start: '2015-06-05 00:00:00', registration_end: '2015-06-12', gift_due_date: '2015-06-20 00:00:00')
-        jewelry_exchange = Exchange.create(name: 'Jewelry', thumburl: 'http://www.qccrimestoppers.com/images/jewelry.jpg', description: 'Jewelry-related item exchange', registration_start: '2015-06-05 00:00:00', registration_end: '2015-06-17 00:00:00', gift_due_date: '2015-06-20 00:00:00')
+    # Current
+    mario_exchange = Exchange.create(name:'Super Mario', thumburl:'http://screenshots.en.sftcdn.net/en/scrn/3334000/3334419/super-mario-galaxy-2-18-700x437.jpg', description: 'Mario-related item exchange', registration_start: '2015-05-13 00:00:00', registration_end: '2015-05-27 00:00:00', gift_due_date: '2015-06-05 00:00:00')
+    thones_exchange = Exchange.create(name:'Game of Thrones', thumburl:'http://www.geekpeeks.com/wp-content/uploads/2011/12/gameofthrones-title-WIDE.jpg', description: 'Game of Thrones-related item exchange', registration_start: '2015-05-17 00:00:00', registration_end: '2015-05-27 00:00:00', gift_due_date: '2015-06-05 00:00:00')
+    pokemon_exchange = Exchange.create(name: 'Pokemon', thumburl: 'http://beagamecharacter.com/wp-content/uploads/2013/01/Pokemon-Reveal.jpg', description: 'Pokemon-related item exchange', registration_start: '2015-05-17 00:00:00', registration_end: '2015-05-30 00:00:00', gift_due_date: '2015-06-12 00:00:00')
+    dc_exchange = Exchange.create(name: 'DC', thumburl: 'http://cdn1.sciencefiction.com/wp-content/uploads/2014/04/DCSuperHeroes.jpg', description: 'DC Comics-related item exchange', registration_start: '2015-05-17 00:00:00', registration_end: '2015-05-30 00:00:00', gift_due_date: '2015-06-12 00:00:00')
+    bunny_exchange = Exchange.create(name: 'Bunny', thumburl: 'http://www.clickreadshare.com/wp-content/uploads/bunny-on-a-bed-big.jpg', description: 'Bunny-related item exchange', registration_start: '2015-05-17 00:00:00', registration_end: '2015-05-30 00:00:00', gift_due_date: '2015-06-12 00:00:00')
+    plane_exchange = Exchange.create(name: 'Plane', thumburl: 'http://www.latestpilotjobs.com/ckfiles/images/1(22).jpg', description: 'Plane-related item exchange', registration_start: '2015-05-30 00:00:00', registration_end: '2015-06-05 00:00:00', gift_due_date: '2015-06-12 00:00:00')
+    nerf_exchange = Exchange.create(name: 'Nerf', thumburl: 'http://i296.photobucket.com/albums/mm199/ArR0ws0fLlfe/DSC00595.jpg', description: 'Nerf-related item exchange', registration_start: '2015-05-30 00:00:00', registration_end: '2015-06-05 00:00:00', gift_due_date: '2015-06-12 00:00:00')
+    tom_hanks_exchange = Exchange.create(name: 'Tom Hanks', thumburl: 'http://assets-s3.mensjournal.com/img/article/tom-hanks-the-mj-interview/298_298_tom-hanks-the-mj-interview.jpg', description: 'Tom Hanks-related item exchange', registration_start: '2015-06-05 00:00:00', registration_end: '2015-06-12', gift_due_date: '2015-06-20 00:00:00')
+    jewelry_exchange = Exchange.create(name: 'Jewelry', thumburl: 'http://www.qccrimestoppers.com/images/jewelry.jpg', description: 'Jewelry-related item exchange', registration_start: '2015-06-05 00:00:00', registration_end: '2015-06-17 00:00:00', gift_due_date: '2015-06-20 00:00:00')
+  end
+
+  # unless Exchange.count >= 10000
+    10.times do |i|
+      # unless i > 0
+      #   rand_num = rand(-1..1)
+      # else
+      #   rand_num = rand((i*(-1))..i)
+      # end
+      # start_date = Date.today + rand_num
+      # end_date = Date.today + (i > 0 ? rand(rand_num..i) : rand_num + rand(1..5))
+      # Exchange.create(
+      #     name: "Exchange#{i}",
+      #     thumburl: "http://lorempixel.com/300/200/",
+      #     description: "Exchange#{i} description",
+      #     registration_start: start_date.to_datetime,
+      #     registration_end: end_date.to_datetime,
+      #     gift_due_date: end_date.to_datetime + 7
+      # )
+
+      Exchange.create(
+          name:"Exchange#{i}",
+          thumburl:'http://lorempixel.com/300/200/',
+          description: "Exchange#{i}",
+          registration_start: '2015-05-13 00:00:00',
+          registration_end: '2015-05-27 00:00:00',
+          gift_due_date: '2015-06-15 00:00:00'
+      )
     end
+  # end
 
-    unless Exchange.count >= 10000
-        10000.times do |i|
-          # unless i > 0
-          #   rand_num = rand(-1..1)
-          # else
-          #   rand_num = rand((i*(-1))..i)
-          # end
-          # start_date = Date.today + rand_num
-          # end_date = Date.today + (i > 0 ? rand(rand_num..i) : rand_num + rand(1..5))
-          # Exchange.create(
-          #     name: "Exchange#{i}",
-          #     thumburl: "http://lorempixel.com/300/200/",
-          #     description: "Exchange#{i} description",
-          #     registration_start: start_date.to_datetime,
-          #     registration_end: end_date.to_datetime,
-          #     gift_due_date: end_date.to_datetime + 7
-          # )
+  unless User.exists?(email: "admin@admin.com")
+    #add a admin user
+    User.create!(
+        email: "admin@admin.com",
+        password: "11111111",
+        encrypted_password: Devise.bcrypt(User, '11111111'),
+        admin: true
+    )
 
-            Exchange.create(
-                name:"Exchange#{i}",
-                thumburl:'http://lorempixel.com/300/200/',
-                description: "Exchange#{i}",
-                registration_start: '2015-05-13 00:00:00',
-                registration_end: '2015-05-27 00:00:00',
-                gift_due_date: '2015-06-05 00:00:00'
-            )
-        end
-    end
+    # Add test users
+    User.create!(
+        email: "user1@email.com",
+        password: "password",
+        encrypted_password: Devise.bcrypt(User, "password"),
+        admin: false
+    )
 
-    unless User.exists?(email: "admin@admin.com")
-        #add a admin user
-        User.create!(
-            email: "admin@admin.com",
-            password: "11111111",
-            encrypted_password: Devise.bcrypt(User, '11111111'),
-            admin: true
-        )
+    User.create!(
+        email: "user2@email.com",
+        password: "password",
+        encrypted_password: Devise.bcrypt(User, "password"),
+        admin: false
+    )
 
-        # Add test users
-        User.create!(
-            email: "user1@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
+    User.create!(
+        email: "user3@email.com",
+        password: "password",
+        encrypted_password: Devise.bcrypt(User, "password"),
+        admin: false
+    )
 
-        User.create!(
-            email: "user2@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
+    User.create!(
+        email: "user4@email.com",
+        password: "password",
+        encrypted_password: Devise.bcrypt(User, "password"),
+        admin: false
+    )
 
-        User.create!(
-            email: "user3@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
+    User.create!(
+        email: "user5@email.com",
+        password: "password",
+        encrypted_password: Devise.bcrypt(User, "password"),
+        admin: false
+    )
+  end
 
-        User.create!(
-            email: "user4@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
+  InputType.create(
+      name: "button"
+  )
 
-        User.create!(
-            email: "user5@email.com",
-            password: "password",
-            encrypted_password: Devise.bcrypt(User, "password"),
-            admin: false
-        )
-    end
+  InputType.create(
+      name: "checkbox"
+  )
 
-    unless ExchangeProfile.exists?(exchange_id: 1)
-        # Add exchange profiles
-        ExchangeProfile.create(
-            user_id: 2,
-            exchange_id: 1,
-            gift_received: false
-        )
+  InputType.create(
+      name: "color"
+  )
 
-        ExchangeProfile.create(
-            user_id: 2,
-            exchange_id: 2,
-            gift_received: false
-        )
+  InputType.create(
+      name: "date"
+  )
 
-        ExchangeProfile.create(
-            user_id: 3,
-            exchange_id: 1,
-            gift_received: false
-        )
+  InputType.create(
+      name: "datetime"
+  )
 
-        ExchangeProfile.create(
-            user_id: 3,
-            exchange_id: 2,
-            gift_received: false
-        )
+  InputType.create(
+      name: "email"
+  )
 
-        ExchangeProfile.create(
-            user_id: 4,
-            exchange_id: 1,
-            gift_received: false
-        )
+  InputType.create(
+      name: "file"
+  )
 
-        ExchangeProfile.create(
-            user_id: 4,
-            exchange_id: 2,
-            gift_received: false
-        )
+  InputType.create(
+      name: "image"
+  )
 
-        ExchangeProfile.create(
-            user_id: 5,
-            exchange_id: 1,
-            gift_received: false
-        )
+  InputType.create(
+      name: "month"
+  )
 
-        ExchangeProfile.create(
-            user_id: 5,
-            exchange_id: 2,
-            gift_received: false
-        )
+  InputType.create(
+      name: "number"
+  )
 
-        ExchangeProfile.create(
-            user_id: 6,
-            exchange_id: 2,
-            gift_received: false
-        )    
-    end
+  InputType.create(
+      name: "radio"
+  )
+
+  InputType.create(
+      name: "range"
+  )
+
+  InputType.create(
+      name: "tel"
+  )
+
+  InputType.create(
+      name: "text"
+  )
+
+  InputType.create(
+      name: "url"
+  )
+
+  InputType.create(
+      name: "week"
+  )
+
+  Question.create(
+      title: "Notes for your match",
+      input_type_id: 14
+  )
+
+  Question.create(
+      title: "Favorite thing about this exchange",
+      input_type_id: 14
+  )
+
+  Exchange.find_each do |ex|
+    ExchangeQuestion.create(
+        exchange_id: ex.id,
+        question_id: 1
+    )
+
+    ExchangeQuestion.create(
+        exchange_id: ex.id,
+        question_id: 2
+    )
+  end
+
+  unless ExchangeProfile.exists?(exchange_id: 1)
+    # Add exchange profiles
+    ExchangeProfile.create(
+        user_id: 2,
+        exchange_id: 1,
+        gift_received: false
+    )
+
+    ExchangeProfile.create(
+        user_id: 2,
+        exchange_id: 2,
+        gift_received: false
+    )
+
+    ExchangeProfile.create(
+        user_id: 3,
+        exchange_id: 1,
+        gift_received: false
+    )
+
+    ExchangeProfile.create(
+        user_id: 3,
+        exchange_id: 2,
+        gift_received: false
+    )
+
+    ExchangeProfile.create(
+        user_id: 4,
+        exchange_id: 1,
+        gift_received: false
+    )
+
+    ExchangeProfile.create(
+        user_id: 4,
+        exchange_id: 2,
+        gift_received: false
+    )
+
+    ExchangeProfile.create(
+        user_id: 5,
+        exchange_id: 1,
+        gift_received: false
+    )
+
+    ExchangeProfile.create(
+        user_id: 5,
+        exchange_id: 2,
+        gift_received: false
+    )
+
+    ExchangeProfile.create(
+        user_id: 6,
+        exchange_id: 2,
+        gift_received: false
+    )
+  end
 
 end

@@ -6,11 +6,11 @@ class ExchangesController < ApplicationController
 
 	def index
     if current_user.try(:admin?)
-      @open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now }
-      @past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now }
+      @open_exchanges = Exchange.where("registration_end > ?", DateTime.now)
+      @past_exchanges = Exchange.where("registration_end < ?", DateTime.now)
     else
-      @open_exchanges = Exchange.all.select { |e| e.registration_end > DateTime.now && e.registration_start <= DateTime.now}
-      @past_exchanges = Exchange.all.select { |e| e.registration_end < DateTime.now && e.registration_start <= DateTime.now}
+      @open_exchanges = Exchange.where("registration_end > :now AND registration_start <= :now", { now: DateTime.now })
+      @past_exchanges = Exchange.where("registration_end < :now AND registration_start <= :now", { now: DateTime.now })
     end
 
     respond_to do |format|
@@ -106,6 +106,29 @@ class ExchangesController < ApplicationController
   #      # set schema and save record
   #   end
   # end
+
+  # def form
+  #   @exchange_questions = Exchange.find(params[:id]).questions
+  #
+  #   respond_to do |format|
+  #     format.html
+  #   end
+  # end
+
+  def match
+    @exchange = Exchange.find(params[:id])
+    exchange_profile = ExchangeProfile.where("exchange_id = :ex_id AND user_id = :user_id", { ex_id: params[:id], user_id: current_user.id }).first!
+    @match_profile = ExchangeProfile.find(exchange_profile.exchange_profile_id)
+    @match_form = Hash.new
+
+    @match_profile.exchange.questions.each do |question|
+      @match_form[question.title] = Response.where(user_id: current_user.id, question_id: question.id).first.response_values
+    end
+
+    respond_to do |format|
+      format.html
+    end
+  end
 
 	private
 	def exchange_params

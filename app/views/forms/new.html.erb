@@ -1,11 +1,16 @@
-Enter new exchange information
-<hr>
-
-<%= form_for @form do |f| %>
-	<p>
-		Notes to your Santa: <%= f.text_area :notes %><br/>
-		Favorite Thing about this Exchange?: <%= f.text_area :favorite %><br/>
-		<%= hidden_field_tag :currentExchange, params[:name]  %>
-		<%= f.submit "Submit"%>
-	</p>
-<% end %>
+<div class="row">
+  <div class="col-md-10">
+    <%= form_tag do %>
+        <% @exchange_questions.each do |q| %>
+            <%= fields_for "responses[#{q.id}]", q do |r| %>
+                <div class="row">
+                  <p><%= r.label :title, q.title %></p>
+                  <p><%= r.text_field :title, :value => '' %></p>
+                </div>
+            <% end %>
+        <% end %>
+        <br/>
+        <%= submit_tag("Submit", :class => "btn btn-primary") %>
+    <% end %>
+  </div>
+</div>

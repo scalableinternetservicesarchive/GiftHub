@@ -1,5 +1,26 @@
-# <% @userLists.each do |user| %>
-#       <div class="open">
-#         <p><%= user.email %></p>
-#       </div>
-# <% end %>
+<div class="row">
+  <h1>You have been matched with:</h1>
+  <h2><%= @match_profile.user.email %></h2>
+
+  <div class="row">
+    <div class="col-md-offset-4">
+      <p>Please purchase your gift and deliver it by: <%= @exchange.gift_due_date.to_date.strftime("%b %e, %Y") %></p>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-md-offset-4">
+    <div class="row">
+      <h3>Notes from your match:</h3>
+    </div>
+    <% @match_form.each_pair do |key, value| %>
+        <strong><%= key %></strong>
+        <% value.each do |response| %>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-1">
+            <p><%= response.value %></p>
+              </div>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>

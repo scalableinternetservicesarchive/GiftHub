@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, :only => :dashboard
+
   def index
-  	@exchanges = Exchange.select { |e| Time.at(e.registration_end) > DateTime.now && e.registration_start <= DateTime.now}
+    @exchanges = Exchange.where("registration_end > :now AND registration_start <= :now", { now: DateTime.now })
 
     respond_to do |format|
       format.html
@@ -9,16 +11,16 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-      @photo = Photo.new
-  	  @myExchangeProfiles = ExchangeProfile.all.select { |e| e.user_id ==  current_user.id }
-  	  @myExchanges = []
-      for event in @myExchangeProfiles
-      	item = Exchange.find_by(id: event.exchange_id) #use find by to avoid not found exception
-      	if(item != nil)
-        	@myExchanges.append(item)
-        end
-      end
+    @exchange_profiles = ExchangeProfile.where(user_id: current_user.id)
+    @exchanges = Array.new
 
+    @exchange_profiles.each do |prof|
+      @exchanges.push(prof.exchange)
+    end
+
+    respond_to do |format|
+      format.html
+    end
   end
   
 end

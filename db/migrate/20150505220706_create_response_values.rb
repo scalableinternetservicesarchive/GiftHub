@@ -4,5 +4,7 @@ class CreateResponseValues < ActiveRecord::Migration
       t.belongs_to :response, null: false
       t.string :value, null: false
     end
+
+    add_index :response_values, :response_id
   end
 end

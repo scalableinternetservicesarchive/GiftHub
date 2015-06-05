@@ -7,15 +7,19 @@
   <%= csrf_meta_tags %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
- 
+  <script type="text/javascript">
+    init();
+  </script>
 </head>
 <body>
 
     <%= render 'layouts/header' %>
     <div class="container-fluid">
-      <% flash.each do |key, value| %>
-      	<p><%= value %></p>
-      <%end %>	
+      <% if flash.count > 0 %>
+          <% flash.each_with_index do |value, index| %>
+            <input type="hidden" id=<%= "message#{index}" %> class="flash-message" value="<%= value[1] %>" />
+          <% end %>
+      <% end %>
 
       <%= yield %>
     </div>

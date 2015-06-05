@@ -17,6 +17,12 @@ Rails.application.routes.draw do
 
   get 'forms/create'
 
+  get 'exchanges/:id/form', to: 'forms#new'
+
+  post 'exchanges/:id/form', to: 'forms#create'
+
+  get 'exchanges/:id/match', to: 'exchanges#match'
+
   devise_for :users
 
   # authenticate :user do

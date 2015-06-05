@@ -14,11 +14,11 @@
   </div>
     <div class="field">
     <%= f.label :registration_start %><br />
-    <%= f.date_field :registration_start %>
+    <%= f.text_field :registration_start %>
   </div>
     <div class="field">
     <%= f.label :registration_end %><br />
-    <%= f.date_field :registration_end %>
+    <%= f.text_field :registration_end %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -27,11 +27,25 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-      restrictToFutureDates();
-
-      $('#exchange_registration_start, #exchange_registration_end').blur(function() {
-        constrainEndDate();
+      var startDate = $("#exchange_registration_start").datepicker({
+          format: "mm/dd/yyyy"
+      }).on('changeDate', function(ev) {
+          var newDate = new Date(ev.date)
+          startDate.setValue(newDate);
       });
+
+      var endDate = $("#exchange_registration_end").datepicker({
+          format: "mm/dd/yyyy"
+      }).on('changeDate', function(ev) {
+          var newDate = new Date(ev.date)
+          endDate.setValue(newDate);
+      });
+
+//      restrictToFutureDates();
+//
+//      $('#exchange_registration_start, #exchange_registration_end').blur(function() {
+//        constrainEndDate();
+//      });
   });
 
   function restrictToFutureDates() {

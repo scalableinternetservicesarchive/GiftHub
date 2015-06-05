@@ -4,5 +4,7 @@ class CreateOptions < ActiveRecord::Migration
       t.belongs_to :question, null: false
       t.string :value, null: false
     end
+
+    add_index :options, :question_id
   end
 end

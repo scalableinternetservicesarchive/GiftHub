@@ -1,9 +1,96 @@
-<h1>Galleries#index</h1>
-<p>Find me in app/views/galleries/index.html.erb</p>
-
-
-<% @photos.each do |p| %>
-	<tr>
-		<td><%= image_tag photo.image.url(:thumb) %>
-	</tr>
+<% if false %>
+    <% @photos.each do |p| %>
+        <tr>
+            <td><%= image_tag photo.image.url(:thumb) %>
+        </tr>
+    <% end %>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#menu li a:first').focus();
+
+      $('#menu li a:first').click(function(el) {
+          $.ajax({
+              type: "GET",
+              url: "/galleries/" + el.id + "/exchange_galleries",
+              dataType: "json"
+          }).done(function(data, status, jqXHR) {
+
+          }).fail(function(data) {
+              console.log("failed to load photos");
+              console.log(data);
+          })
+      });
+  });
+</script>
+
+<div id="wrapper">
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+        <% @exchanges.each_with_index do |exchange, ex_idx| %>
+
+      <li>
+        <a id="<%= exchange.id %>" href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span><%= exchange.name %></a>
+      </li>
+          <% end %>
+    </ul>
+  </div><!-- /#sidebar-wrapper -->
+  <!-- Page Content -->
+
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <% if @current_galleries.count > 0 %>
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <% @current_galleries.each_with_index do |gal_idx| %>
+              <li data-target="#carousel-example-generic" data-slide-to="<%= gal_idx %>" <% if gal_idx == 0 %> class="active" <% end %>></li>
+
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <% @current_galleries.each_with_index do |gal_idx| %>
+                  <% if gal_idx == 0 %>
+                  <div class="item active">
+                  <% else %>
+                      <div class="item">
+                  <% end %>
+
+                    <% @current_galleries[gal_idx].photos.each do |photo| %>
+                        <%= image_tag photo.image.url(:large) %>
+                    <div class="carousel-caption">
+                      <%= photo.caption %>
+                    </div>
+                    <% end %>
+                  </div>
+
+                <% end %>
+              <% end %>
+
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+              <% else %>
+          <h1>No photos have been uploaded for this event</h1>
+              <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519020819) do
+ActiveRecord::Schema.define(version: 20150604112249) do
 
   create_table "campuses", force: :cascade do |t|
     t.string "name",         null: false
@@ -51,6 +51,11 @@ ActiveRecord::Schema.define(version: 20150519020819) do
     t.binary  "delivery_verification"
     t.boolean "gift_received",         null: false
     t.integer "wish_list_id"
+  end
+
+  create_table "exchange_questions", force: :cascade do |t|
+    t.integer "exchange_id", null: false
+    t.integer "question_id", null: false
   end
 
   create_table "exchanges", force: :cascade do |t|
@@ -93,12 +98,16 @@ ActiveRecord::Schema.define(version: 20150519020819) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string "image_file_name",    limit: 255
-    t.string "image_content_type", limit: 255
+    t.integer  "gallery_id",         null: false
+    t.binary   "data",               null: false
+    t.string   "caption",            null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer "exchange_id",   null: false
     t.string  "title",         null: false
     t.integer "input_type_id", null: false
   end

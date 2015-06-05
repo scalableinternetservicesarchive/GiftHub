@@ -6,5 +6,8 @@ class CreateGalleries < ActiveRecord::Migration
       t.string :title, null: false
       t.datetime :upload_date, null: false
     end
+
+    add_index :galleries, :exchange_id
+    add_index :galleries, :user_id
   end
 end

@@ -15,6 +15,7 @@ class PhotosController < ApplicationController
   end
 
   def create
+    @gallery = Gallery.new(exchange_id: params[:id])
     @photo = Photo.new(:image => params[:photo][:image], :image_file_name => params[:photo][:image].original_filename, :image_content_type => params[:photo][:image].content_type)
     respond_to do |format|
       if @photo.save

@@ -5,5 +5,8 @@ class CreateComments < ActiveRecord::Migration
       t.belongs_to :user, null: false
       t.string :value, null: false
     end
+
+    add_index :comments, :gallery_id
+    add_index :comments, :user_id
   end
 end

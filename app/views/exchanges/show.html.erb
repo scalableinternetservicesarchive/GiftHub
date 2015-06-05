@@ -1,27 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <img  class="img-thumbnail" alt= <%= @exchange.name %> src= <%= @exchange.thumburl %> />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+    <p>
+      <b>Name:</b>
+      <%= @exchange.name %>
+    </p>
 
-<div class="thumbnail">
-  <img alt= <%= @exchange.name %> src= <%= @exchange.thumburl %> />
+    <p>
+      <b>Description:</b>
+      <%= @exchange.description %>
+    </p>
+
+    <p>
+      <b>Registration begins:</b>
+      <%= @exchange.registration_start.to_date.strftime("%b %e, %Y") %>
+    </p>
+
+    <p>
+      <b>Registration Ends:</b>
+      <%= @exchange.registration_end.to_date.strftime("%b %e, %Y") %>
+    </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1 col-md-offset-4">
+    <%= link_to 'Back', URI(request.referer).path %>
+    </div>
+  </div>
 </div>
-        
-<p>
-  <b>Name:</b>
-  <%= @exchange.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @exchange.description %>
-</p>
-
-<p>
-  <b>registration_start:</b>
-  <%= @exchange.registration_start %>
-</p>
-
-<p>
-  <b>registration_end:</b>
-  <%= @exchange.registration_end %>
-</p>
-
-<%= link_to 'Back', exchanges_path %>

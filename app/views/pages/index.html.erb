@@ -21,7 +21,7 @@
     var timeline;
   $(document).ready(function() {
     loadExchJSON();
-
+    showNotifications();
   });
     function loadExchJSON() {
         $.ajax({
@@ -42,7 +42,7 @@
                     "startDate": regStartDate.getFullYear() + "," + (regStartDate.getMonth() + 1) + "," + regStartDate.getDate(),
                     "endDate": regEndDate.getFullYear() + "," + (regEndDate.getMonth() + 1) + "," + regEndDate.getDate(),
                     "headline": el.name,
-                    "text": el.description + (regStartDate < Date.now() ? '<br/><a class="btn btn-success" href="/forms/new?name=' + el.name : '') + '&exchange_id=' + el.id + '">Sign Up</a>',
+                    "text": el.description + (regStartDate < Date.now() ? '<br/><a class="btn btn-success" href="/exchanges/' + el.id + '/form' : '#') + '">Sign Up</a>',
                     //            "tag":,
                     //            "classname":,
                     "asset": {

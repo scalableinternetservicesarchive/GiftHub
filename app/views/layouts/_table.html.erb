@@ -4,11 +4,12 @@
     <div class="col-xs-6 col-md-10 col-md-offset-1 col-xs-offset-3">
       <div class="row row-centered">
   <% @open_exchanges.each do |exchange| %>
+            <% if false %>
         <div class="col-md-3 col-centered open" style="padding-bottom: 1em">
           <p><%= exchange.name %></p>
           <div class="row" style="padding-bottom: 1em;">
-            <img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="img-thumbnail img-responsive center-block" />
-            <% link_to image_tag(exchange.thumburl, border: 0), new_form_path(:name => exchange.name) %>
+            <!--<img alt= <%= exchange.name %> src= <%= exchange.thumburl %> class="img-thumbnail img-responsive center-block" />-->
+            <%= link_to image_tag(exchange.thumburl, :border => 0, :class => "img-thumbnail img-responsive center-block"), "exchanges/#{exchange.id}/form" %>
             <% if current_user.try(:admin?) %>
                 <td><%= link_to 'Show', exchange %></td>
                 <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
@@ -17,11 +18,69 @@
           </div>
           <div class="row">
             <!-- <div class="col-md-offset-1"> -->
-            <%= link_to "Sign Up", new_form_path(:name => exchange.name, :exchange_id => exchange.id), class: "btn btn-warning" %>
+            <%= link_to "Sign Up", "exchanges/#{exchange.id}/form", class: "btn btn-warning" %>
             <!-- </div> -->
           </div>
 
         </div>
+                <% end %>
+            <div class="col-md-3 col-centered open" style="padding-bottom: 1em">
+              <div class="card-container manual-flip">
+                <div class="card" style="height: 350px;">
+                  <div class="front" style="height: inherit;">
+                    <!--<div class="cover">-->
+                      <!--&lt;!&ndash;<img src=""/>&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="user">-->
+
+                    <!--</div>-->
+                    <div class="content">
+                      <div class="main">
+                        <%= link_to image_tag(exchange.thumburl, :border => 0, :class => "img-thumbnail img-responsive center-block"), "exchanges/#{exchange.id}" %>
+                        <h3 class="name"><%= exchange.name %></h3>
+                        <% if current_user.try(:admin?) %>
+                            <div class="row">
+                            <%= link_to 'Show', exchange %>
+                            <%= link_to 'Edit', edit_exchange_path(exchange) %>
+                            <%= link_to 'Destroy', exchange, :confirm => 'Are you sure?', :method => :delete %>
+                            </div>
+                        <% end %>
+
+                        <% if !already_registered(exchange.id) %>
+                        <div class="row" style="padding-bottom: 1em">
+                          <%= link_to "Sign Up", "exchanges/#{exchange.id}/form", class: "btn btn-warning" %>
+                        </div>
+                            <% end %>
+                      </div>
+                      <div class="footer" style="margin-top: 0px;">
+                        <button class="btn btn-simple" onclick="rotateCard(this)">
+                          <i class="fa fa-mail-forward"></i> Learn More
+                        </button>
+                      </div>
+                    </div>
+
+                  </div> <!-- end front panel -->
+                  <div class="back" style="height: inherit;">
+                    <!--<div class="header"></div>-->
+                    <div class="content">
+                      <div class="main">
+                        <span>Description:</span>
+                        <p><%= exchange.description %></p>
+                        <span>Registration Began:</span>
+                        <p><%= exchange.registration_start.to_date.strftime("%b %e, %Y") %></p>
+                        <span>Registration Ends:</span>
+                        <p><%= exchange.registration_end.to_date.strftime("%b %e, %Y") %></p>
+                      </div><div class="footer">
+                      <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
+                        <i class="fa fa-reply"></i> Back
+                      </button>
+                    </div>
+                    </div>
+
+                  </div> <!-- end back panel -->
+                </div> <!-- end card -->
+              </div> <!-- end card-container -->
+            </div> <!-- end col sm 3 -->
   <% end %>
       </div>
     </div>
@@ -47,3 +106,73 @@
   </div>
 </div>
 </div>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('[rel="tooltip"]').tooltip();
+
+    });
+
+    function rotateCard(btn){
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if($card.hasClass('hover')){
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+</script>
+
+
+<!--<div class="col-md-4 col-sm-6">-->
+  <!--<div class="card-container manual-flip">-->
+    <!--<div class="card">-->
+      <!--<div class="front">-->
+        <!--<div class="cover">-->
+          <!--&lt;!&ndash;<img src=""/>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="user">-->
+          <!--<img class="img-thumbnail" src=""/>-->
+        <!--</div>-->
+        <!--<div class="content">-->
+          <!--<div class="main">-->
+            <!--<h3 class="name">Andrew Mike</h3>-->
+            <!--<p class="profession">Web Developer</p>-->
+            <!--<h5><i class="fa fa-map-marker fa-fw text-muted"></i> Bucharest, Romania</h5>-->
+            <!--<h5><i class="fa fa-building-o fa-fw text-muted"></i> Creative Tim Inc. </h5>-->
+            <!--<h5><i class="fa fa-envelope-o fa-fw text-muted"></i> mike@creative-tim.com</h5>-->
+          <!--</div>-->
+          <!--<div class="footer">-->
+            <!--<button class="btn btn-simple" onclick="rotateCard(this)">-->
+              <!--<i class="fa fa-mail-forward"></i> Manual Flip-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div> &lt;!&ndash; end front panel &ndash;&gt;-->
+      <!--<div class="back">-->
+        <!--<div class="header">-->
+          <!--<h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>-->
+        <!--</div>-->
+        <!--<div class="content">-->
+          <!--<div class="main">-->
+            <!--<h4 class="text-center">Experince</h4>-->
+            <!--<p>Mike was working with our team since 2012.</p>-->
+            <!--<h4 class="text-center">Areas of Expertise</h4>-->
+            <!--<p>Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="footer">-->
+          <!--<button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">-->
+            <!--<i class="fa fa-reply"></i> Back-->
+          <!--</button>-->
+          <!--<div class="social-links text-center">-->
+            <!--<a href="http://cretive-tim.com" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>-->
+            <!--<a href="http://cretive-tim.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>-->
+            <!--<a href="http://cretive-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div> &lt;!&ndash; end back panel &ndash;&gt;-->
+    <!--</div> &lt;!&ndash; end card &ndash;&gt;-->
+  <!--</div> &lt;!&ndash; end card-container &ndash;&gt;-->
+<!--</div> &lt;!&ndash; end col sm 3 &ndash;&gt;-->
